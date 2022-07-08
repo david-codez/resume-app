@@ -1,0 +1,116 @@
+
+[
+
+{
+    "id": 1,
+    "company": "Grande's Bella Cucina",
+    "position": ["Expoditer", "Food Runner", "Busser"],
+    "startMonth": "November",
+    "startYear": 2008,
+    "endMonth": "May",
+    "endYear": 2012,
+    "description": "this is sample text",
+    "personalNotes": "this is also sample text but in a different section so it feels special or something, idk ask someone else"
+
+},
+{
+    "id": 2,
+    "company": "Dunkin Donuts",
+    "position": ["Team Member", "Shift Leader", "General Manager"],
+    "startMonth": "September",
+    "startYear": 2012,
+    "endMonth": "November",
+    "endYear": 2015,
+    "description": "this is more sample text",
+    "personalNotes": "do i have to spell this out still"
+
+},
+{
+    "id": 3,
+    "company": "Teleperformance",
+    "position": ["Xbox Customer Service Representative"],
+    "startMonth": "November",
+    "startYear": 2015,
+    "endMonth": "May",
+    "endYear": 2015,
+    "description": "sample text",
+    "personalNotes": "ok this is getting obnoxious, how many times i gotta you about the sample text"
+
+},
+{
+    "id": 4,
+    "company": "Chili's Bar & Grill",
+    "position": ["Expoditer", "Line Cook", "Server", "Bartender"],
+    "startMonth": "May",
+    "startYear": 2015,
+    "endMonth": "August",
+    "endYear": 2017,
+    "description": "sample text",
+    "personalNotes": "more sample text"
+
+},
+{
+    "id": 5,
+    "company": "Buffalo Wild Wings",
+    "position": ["Server"],
+    "startMonth": "March",
+    "startYear": 2017,
+    "endMonth": "August",
+    "endYear": 2017,
+    "description": "sample text",
+    "personalNotes": "i'm tired, this is sample text"
+
+},
+{
+    "id": 6,
+    "company": "Duffy's Bar & Grill",
+    "position": ["Server","Bartender"],
+    "startMonth": "August",
+    "startYear": 2017,
+    "endMonth": "January",
+    "endYear": 2021,
+    "description": "I'm not gonna keep saying this",
+    "personalNotes": "it's sample text, suprised?"
+
+},
+{
+    "id": 7,
+    "company": "Westwood Interior Cleaning",
+    "position": ["Exterior Maintenance Technician"],
+    "startMonth": "June",
+    "startYear": 2018,
+    "endMonth": "July",
+    "endYear": 2020,
+    "description": "this is sample text",
+    "personalNotes": "this is sample text too"
+
+},
+{
+    "id": 8,
+    "company": "Tommy Bahama",
+    "position": ["Server", "Bartender"],
+    "startMonth": "January",
+    "startYear": 2021,
+    "endMonth": "February",
+    "endYear": 2022,
+    "description": "this is text, whether or not it's sample text really depends on if it makes the final cut doesn't it?",
+    "personalNotes": "i dont' know what to put here but this is sample text"
+
+},
+{
+    "id": 9,
+    "company": "Honeybelle at PGA National Resort",
+    "position": ["Server"],
+    "startMonth": "January",
+    "startYear": 2022,
+    "endMonth": "May",
+    "endYear": 2022,
+    "description": "ok we're almost done, thank god",
+    "personalNotes": "for this last time, this is sample text"
+
+}
+
+
+]
+
+
