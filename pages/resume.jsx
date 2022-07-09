@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import jobHistory from '../workHistory.json'
 import { Container } from "react-bootstrap"
 import JobHistorySection from "../components/resume/JobHistorySection";
+import EducationSection from "../components/resume/EducationSection";
 
 export default function Resume () {
   return (
@@ -21,8 +22,15 @@ export default function Resume () {
           <AboutMeSection />
         </Container>
       </section>
+      <section>
+        <Container>
+          <h1 className={styles.sectionHeader}>Education</h1>
+          <EducationSection />
+        </Container>
+      </section>
       <section className={styles.sectionConfig}>
         <Container>
+          <h1 className={styles.sectionHeader}>Job History</h1>
           <JobHistorySection jobHistory={jobHistory} />
           
         </Container>

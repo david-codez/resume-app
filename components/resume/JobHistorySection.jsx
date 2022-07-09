@@ -10,7 +10,6 @@ export default function JobHistorySection() {
     const jobs = jobHistory
   return (
     <div>
-      <h1>Job History</h1>
     
      {
         jobs.map((job) => (

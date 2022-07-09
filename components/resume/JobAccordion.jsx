@@ -29,6 +29,7 @@ export default function JobAccordion({job}) {
         <AccordionDetails>
             <Row>
                 <Col>
+                    <h5>Position(s):</h5>
                     <ul>
                         {job.position.map((position, index) => (
                             
@@ -37,11 +38,13 @@ export default function JobAccordion({job}) {
                     </ul>
                 </Col>
                 <Col>
+                    <h5>Job Description:</h5>
                     <Typography>
                         {job.description}
                     </Typography>
                 </Col>
                 <Col>
+                    <h5>Notes:</h5>
                     <Typography>
                         {job.personalNotes}
                     </Typography>

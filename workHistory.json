@@ -10,19 +10,19 @@
     "endMonth": "May",
     "endYear": 2012,
     "description": "this is sample text",
-    "personalNotes": "this is also sample text but in a different section so it feels special or something, idk ask someone else"
+    "personalNotes": "Grande's was my first job, I started here as a busser when i was 17 years old. I worked my way up to food runner and then eventually became the expeditor for the restaurant. As the expeditor i was in charge of making sure every order reached the table exactly to the customer's specifications and in a timely fashion"
 
 },
 {
     "id": 2,
     "company": "Dunkin Donuts",
-    "position": ["Team Member", "Shift Leader", "General Manager"],
+    "position": ["General Manager", "Shift Leader", "Team Member"],
     "startMonth": "September",
     "startYear": 2012,
     "endMonth": "November",
-    "endYear": 2015,
+    "endYear": 2014,
     "description": "this is more sample text",
-    "personalNotes": "do i have to spell this out still"
+    "personalNotes": "When I started working at Dunkin Donuts, it was for the grand opening of a brand-new store. Two weeks after the store opened, I was promoted from a Team Member position to being a Shift Leader. After a year in that position, I was given my own store and promoted to General Manager. After one and a half years in that position, I realized that restaurant management wasn't going to be my career, so I moved on"
 
 },
 {
@@ -30,7 +30,7 @@
     "company": "Teleperformance",
     "position": ["Xbox Customer Service Representative"],
     "startMonth": "November",
-    "startYear": 2015,
+    "startYear": 2014,
     "endMonth": "May",
     "endYear": 2015,
     "description": "sample text",
@@ -40,13 +40,13 @@
 {
     "id": 4,
     "company": "Chili's Bar & Grill",
-    "position": ["Expoditer", "Line Cook", "Server", "Bartender"],
+    "position": ["Expeditor", "Line Cook", "Server", "Bartender"],
     "startMonth": "May",
     "startYear": 2015,
     "endMonth": "August",
     "endYear": 2017,
     "description": "sample text",
-    "personalNotes": "more sample text"
+    "personalNotes": "I started working at Chili's as an expeditor, after working there for six months I was promoted to a server position. After being a server for eight months I was promoted to bartender. I worked as a bartender for a little over a year before moving on to a different company"
 
 },
 {
@@ -70,7 +70,7 @@
     "endMonth": "January",
     "endYear": 2021,
     "description": "I'm not gonna keep saying this",
-    "personalNotes": "it's sample text, suprised?"
+    "personalNotes": "I worked at Duffy's for about three and a half years, I worked at three different locations and was offered a management position several times. I never accepted any supervisory position because i had no interest in pursuing a career in restaurant management"
 
 },
 {
