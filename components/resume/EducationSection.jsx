@@ -6,7 +6,6 @@ import educationHistory from '../../educationHistory.json'
 export default function EducationSection() {
   return (
     <>
-        <h1>Education Section</h1>
         <Row>
             <Col>
                 <Card className='schoolCard'>

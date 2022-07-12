@@ -12,11 +12,16 @@ export default function Resume () {
   return (
     <div>
       <header>
+        <Nav />
         <Container>
         <Carousel />
-        <h1 className={styles.sectionHeader}>David A. Daniel</h1>
         </Container>
       </header>
+      <section className={styles.nameSection}>
+        <Container>
+          <h1 className={styles.sectionHeader}>David A. Daniel</h1>
+        </Container>
+      </section>
       <section className={styles.sectionConfig}>
         <Container>
           <AboutMeSection />
@@ -32,7 +37,6 @@ export default function Resume () {
         <Container>
           <h1 className={styles.sectionHeader}>Job History</h1>
           <JobHistorySection jobHistory={jobHistory} />
-          
         </Container>
       </section>
       <section className={styles.sectionConfig}>
@@ -41,7 +45,7 @@ export default function Resume () {
         </Container>
       </section>
       <section className={styles.sectionConfig}>
-        <h1 className={styles.sectionHeader}>This is something else, idk ask ya mammy</h1>
+        <h1 className={styles.sectionHeader}>Skills</h1>
       </section>
     </div>
   )

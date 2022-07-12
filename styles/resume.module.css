@@ -5,10 +5,19 @@
 
 .sectionConfig {
     text-align: center;
-    margin: 4rem
+    margin: 10rem 4rem;
+}
+
+.nameSection {
+    text-align: center;
+    margin: 5rem 4rem;
 }
 
 .schoolCard {
     text-align: center;
     justify-content: center;
+}
+
+.aboutMeImage {
+    border-radius: 90%;
 }

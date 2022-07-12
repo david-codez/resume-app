@@ -21,10 +21,10 @@ export default function JobAccordion({job}) {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            {job.company}
+          <Typography sx={{ width: '33%', flexShrink: 0 }} >
+            {job.company + '\t'}
           </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>{dateString}</Typography>
+          <Typography sx={{ color: 'text.secondary' }} >{dateString}</Typography>
         </AccordionSummary>
         <AccordionDetails>
             <Row>
