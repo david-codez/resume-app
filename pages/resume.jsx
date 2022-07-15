@@ -1,6 +1,6 @@
 import Nav from "../components/Navbar/Navbar"
 import styles from '../styles/resume.module.css'
-import Carousel from '../components/resume/Carousel'
+// import Carousel from '../components/resume/Carousel'
 import AboutMeSection from '../components/resume/AboutMeSection'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import jobHistory from '../workHistory.json'
@@ -14,7 +14,7 @@ export default function Resume () {
       <header>
         <Nav />
         <Container>
-        <Carousel />
+        {/* <Carousel /> */}
         </Container>
       </header>
       <section className={styles.nameSection}>

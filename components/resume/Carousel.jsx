@@ -1,4 +1,4 @@
-import  Carousel from 'bootstrap/carousel'
+import  Carousel from 'react-bootstrap/carousel'
 import Image from 'next/image';
 import {useState} from 'react'
 
