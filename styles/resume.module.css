@@ -1,7 +1,22 @@
+.titleHeader {
+    font-size: 2rem;
+    text-align: center;
+    font-family: Cormorant SC, serif;
+}
+.titleSubHeader {
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: Cormorant SC, serif;
+    margin-bottom: 10px;
+}
+
 .sectionHeader {
     font-size: 2rem;
     text-align: center;
+    font-family: Cormorant SC, serif;
 }
+
+
 
 .sectionConfig {
     text-align: center;
@@ -10,7 +25,7 @@
 
 .nameSection {
     text-align: center;
-    margin: 5rem 4rem;
+    padding: 5rem 4rem;
 }
 
 .schoolCard {
@@ -20,4 +35,9 @@
 
 .aboutMeImage {
     border-radius: 80%;
+}
+
+.pageBody {
+    background-color: black;
+    color: white;
 }

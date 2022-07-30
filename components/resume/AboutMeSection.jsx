@@ -29,9 +29,9 @@ export default function AboutMeSection() {
                 
             </Col>
            <Col md='6'>
-                <Typography variant='h5'>
+                <h5>
                     Highly motivated IT student and self-taught programmer looking to gain real world experience in the technology industry. Fourteen years working in the hospitality and customer service industry has provided invaluable skills that will transfer well to any profession.
-                </Typography>
+                </h5>
            </Col>
            
         </Row>
