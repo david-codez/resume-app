@@ -12,19 +12,19 @@ export default function JobAccordion({job}) {
       setExpanded(isExpanded ? panel : false);
     };
 
-    const dateString = job.startMonth + ", " + job.startYear + " - " + job.endMonth + " , " + job.endYear
+    const dateString =  job.startYear + " - " + job.endYear
 
   return (
-      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} className='job-accordion'>
         <AccordionSummary
           expandIcon={<MdExpandMore />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }} >
-            {job.company + '\t'}
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }} >{dateString}</Typography>
+              <Typography sx={{ width: '33%', flexShrink: 0, fontSize: '1.5rem' }} >
+                {job.company + '\t'}
+              </Typography>  
+              <Typography sx={{ color: 'text.secondary', fontSize: '1.5rem'}}  id='date-string'>{dateString}</Typography>
         </AccordionSummary>
         <AccordionDetails>
             <Row>
@@ -32,26 +32,23 @@ export default function JobAccordion({job}) {
                     <h5>Position(s):</h5>
                     <ul>
                         {job.position.map((position, index) => (
-                            
-                            <li key={index}>{position}</li>
+                            <li key={index}><Typography sx={{ fontSize: '1.2rem'}}>{position}</Typography></li>
                         ))}
                     </ul>
                 </Col>
                 <Col>
                     <h5>Job Description:</h5>
-                    <Typography>
+                    <Typography sx={{ fontSize: '1.2rem'}}>
                         {job.description}
                     </Typography>
                 </Col>
                 <Col>
                     <h5>Notes:</h5>
-                    <Typography>
+                    <Typography sx={{ fontSize: '1.2rem'}}>
                         {job.personalNotes}
                     </Typography>
                 </Col>
-            
             </Row>
-     
         </AccordionDetails>
       </Accordion>
   )

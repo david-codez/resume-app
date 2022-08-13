@@ -1,31 +1,36 @@
 .titleHeader {
     font-size: 2rem;
+    font-weight: 900;
     text-align: center;
     font-family: Cormorant SC, serif;
 }
 .titleSubHeader {
     font-size: 1.5rem;
+    font-weight: 900;
     text-align: center;
     font-family: Cormorant SC, serif;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .sectionHeader {
     font-size: 2rem;
     text-align: center;
     font-family: Cormorant SC, serif;
+    padding-bottom: 3%;
 }
 
 
-
+.card-img {
+    width: 120px;
+}
 .sectionConfig {
     text-align: center;
-    margin: 10rem 4rem;
+    padding: 3rem 4rem;
 }
 
 .nameSection {
     text-align: center;
-    padding: 5rem 4rem;
+    padding: 2rem 4rem;
 }
 
 .schoolCard {

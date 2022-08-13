@@ -9,6 +9,8 @@ import JobHistorySection from "../components/resume/JobHistorySection";
 import EducationSection from "../components/resume/EducationSection";
 import PortfolioSection from "../components/resume/PortfolioSection";
 import Head from 'next/head'
+import FrameworkIcons from "../components/FrameworkIcons";
+import SocialSection from "../components/resume/SocialSection"
 
 export default function Resume () {
   return (
@@ -19,6 +21,11 @@ export default function Resume () {
           <Container>
             <h1 className={styles.titleHeader}>David A. Daniel</h1>
             <h1 className={styles.titleSubHeader}>Web Developer</h1>
+          </Container>
+        </section>
+        <section className={styles.sectionConfig}>
+          <Container>
+            <SocialSection />
           </Container>
         </section>
         <section id='carousel-section'>
@@ -33,7 +40,7 @@ export default function Resume () {
           </Container>
         </section>
         <section>
-          <Container>
+          <Container className="education-section">
             <h1 className={styles.sectionHeader}>Education</h1>
             <EducationSection />
           </Container>
@@ -50,8 +57,11 @@ export default function Resume () {
             <JobHistorySection jobHistory={jobHistory} />
           </Container>
         </section>
-        <section className={styles.sectionConfig}>
+        <section className={styles.sectionConfig} >
           <h1 className={styles.sectionHeader}>Skills</h1>
+          <Container>
+            <FrameworkIcons />
+          </Container>
         </section>
       </body>
       

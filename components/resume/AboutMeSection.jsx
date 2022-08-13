@@ -1,6 +1,5 @@
 import React from 'react'
 import PersonIcon from '@mui/icons-material/Person';
-import {BsFillPersonFill} from 'react-icons/bs'
 import { Col, Row } from 'react-bootstrap';
 import {Typography} from '@mui/material'
 import Image from 'next/image'
@@ -12,7 +11,6 @@ export default function AboutMeSection() {
     <div>
         <Row>
             <Col md='4'>
-                {/* <BsFillPersonFill size="3 em" /> */}
                 <div>
                   <Image 
                     src={headshot}
@@ -29,7 +27,7 @@ export default function AboutMeSection() {
                 
             </Col>
            <Col md='6'>
-                <h5>
+                <h5 className='about-me-description'>
                     Highly motivated IT student and self-taught programmer looking to gain real world experience in the technology industry. Fourteen years working in the hospitality and customer service industry has provided invaluable skills that will transfer well to any profession.
                 </h5>
            </Col>

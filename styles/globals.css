@@ -4,6 +4,36 @@ body {
   margin: 0;
   font-family: Cormorant SC, serif;
   text-align: center;
+  font-weight: 900;
+}
+
+.about-me-description {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+.education-section {
+  margin-left: 15%;
+  margin-right: 15%;
+
+}
+
+.social-icons {
+  margin-right: 10%;
+  color: white;
+}
+#date-string {
+  justify-content: right;
+  margin-left: 30%;
+}
+.schoolCard {
+  background-color: black;
+  border: solid black 2px;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+.portfolio-card {
+  margin-bottom: 5%;
 }
 
 a {
@@ -23,4 +53,72 @@ a {
     color: white;
     background: black;
   }
+}
+
+.job-accordion {
+  border: solid 1px white;
+}
+.MuiTooltip-popper {
+  font-weight: 700;
+}
+.framework-icon {
+  margin: 10px 10px;
+}
+
+#html-icon:hover {
+  color: #f06529;
+}
+#css-icon:hover {
+  color: #264de4;
+}
+#bootstrap-icon:hover {
+  color: #563d7c;
+}
+#js-icon:hover {
+  color: yellow;
+}
+#react-icon:hover {
+  color: #61dbfb;
+}
+#redux-icon:hover {
+  color: #764abc;
+}
+#node-icon:hover {
+  color: #44883e;
+}
+#nextjs-icon:hover {
+  color: #5e7693;
+}
+#git-icon:hover {
+  color: #c9510c;
+}
+#python-icon:hover {
+  color: #306998;
+}
+#express-icon:hover {
+  color: #5e7693;
+}
+#mongodb-icon:hover {
+  color: #4DB33D;
+}
+#csharp-icon:hover {
+  color: #682876;
+}
+#cplusplus-icon:hover {
+  color: #044F88;
+}
+#mui-icon:hover {
+  color: #3399FF;
+}
+#github-icon:hover {
+  color: purple;
+}
+#linkedin-icon:hover {
+  color: royalblue;
+}
+#youtube-icon:hover {
+  color: red;
+}
+#instagram-icon:hover {
+  color: #bc2a8d;
 }
