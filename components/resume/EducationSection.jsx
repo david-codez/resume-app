@@ -6,6 +6,8 @@ import { Card } from 'react-bootstrap'
 
 // TODO refactor cards to react bootstrap
 // ! bg and border attributes dont affect mui cards
+
+
 export default function EducationSection() {
   return (
     <>
@@ -21,13 +23,13 @@ export default function EducationSection() {
                     />
                      <Card.Body>
                         <Card.Title>
-                            {educationHistory[0].school}
+                            <span className='school-name'>{educationHistory[0].school}</span>
                         </Card.Title>
                         <Card.Subtitle>
-                            {educationHistory[0].diploma}
+                            <span className='school-diploma'>{educationHistory[0].diploma}</span>
                         </Card.Subtitle>
                         <Card.Text>
-                            {educationHistory[0].startMonth + " " + educationHistory[0].startYear + " - " + educationHistory[0].endMonth + " " + educationHistory[0].endYear}
+                            {educationHistory[0].startYear + " - " + educationHistory[0].endYear}
                         </Card.Text>
                     </Card.Body>
                 </Card>
@@ -42,13 +44,13 @@ export default function EducationSection() {
                     />
                      <Card.Body>
                         <Card.Title>
-                            {educationHistory[1].school}
+                            <span className='school-name'>{educationHistory[1].school}</span>
                         </Card.Title>
                         <Card.Subtitle>
-                            {educationHistory[1].diploma}
+                           <span className='school-diploma'>{educationHistory[1].diploma}</span> 
                         </Card.Subtitle>
                         <Card.Text >
-                            {educationHistory[1].startMonth + " " + educationHistory[1].startYear + " - " + educationHistory[1].endMonth + " " + educationHistory[1].endYear}
+                            {educationHistory[1].startYear + " - " + educationHistory[1].endYear}
                         </Card.Text>
                     </Card.Body>
                 </Card>
@@ -63,16 +65,16 @@ export default function EducationSection() {
                     />
                      <Card.Body>
                         <Card.Title >
-                            {educationHistory[2].school}
+                            <span className='school-name'>{educationHistory[2].school}</span>
                         </Card.Title>
                         <Card.Subtitle >
-                            {educationHistory[2].diploma }
+                            <span className='school-diploma'>{ educationHistory[2].diploma }</span>
                         </Card.Subtitle>
                         <Card.Subtitle >
-                            {educationHistory[2].major}
+                            <span className='school-major'>{educationHistory[2].major}</span>
                         </Card.Subtitle>
                         <Card.Text >
-                            {educationHistory[2].startMonth + " " + educationHistory[2].startYear + " - " + educationHistory[2].endMonth + " " + educationHistory[2].endYear}
+                            {educationHistory[2].startYear + " - " + educationHistory[2].endYear}
                         </Card.Text>
                     </Card.Body>
                 </Card>

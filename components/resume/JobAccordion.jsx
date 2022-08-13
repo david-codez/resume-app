@@ -29,7 +29,7 @@ export default function JobAccordion({job}) {
         <AccordionDetails>
             <Row>
                 <Col>
-                    <h5>Position(s):</h5>
+                    <h5 className='accordion-header'>Position(s):</h5>
                     <ul>
                         {job.position.map((position, index) => (
                             <li key={index}><Typography sx={{ fontSize: '1.2rem'}}>{position}</Typography></li>
@@ -37,13 +37,13 @@ export default function JobAccordion({job}) {
                     </ul>
                 </Col>
                 <Col>
-                    <h5>Job Description:</h5>
+                    <h5 className='accordion-header'>Job Description:</h5>
                     <Typography sx={{ fontSize: '1.2rem'}}>
                         {job.description}
                     </Typography>
                 </Col>
                 <Col>
-                    <h5>Notes:</h5>
+                    <h5 className='accordion-header'>Notes:</h5>
                     <Typography sx={{ fontSize: '1.2rem'}}>
                         {job.personalNotes}
                     </Typography>

@@ -14,7 +14,6 @@ import SocialSection from "../components/resume/SocialSection"
 
 export default function Resume () {
   return (
-    <div>
   
       <body className={styles.pageBody}>
         <section className={styles.nameSection}>
@@ -66,7 +65,7 @@ export default function Resume () {
       </body>
       
       
-    </div>
+  
   )
 }
 

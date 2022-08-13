@@ -7,7 +7,8 @@ import JobAccordion from './JobAccordion'
 
 export default function JobHistorySection() {
 
-    const jobs = jobHistory
+    const jobs = jobHistory.reverse()
+
   return (
     <div>
     

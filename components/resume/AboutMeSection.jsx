@@ -27,9 +27,9 @@ export default function AboutMeSection() {
                 
             </Col>
            <Col md='6'>
-                <h5 className='about-me-description'>
+                <h6 className='about-me-description'>
                     Highly motivated IT student and self-taught programmer looking to gain real world experience in the technology industry. Fourteen years working in the hospitality and customer service industry has provided invaluable skills that will transfer well to any profession.
-                </h5>
+                </h6>
            </Col>
            
         </Row>

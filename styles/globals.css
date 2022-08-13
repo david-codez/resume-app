@@ -7,9 +7,15 @@ body {
   font-weight: 900;
 }
 
+.accordion-header {
+  text-decoration: underline;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
 .about-me-description {
-  font-weight: 900;
+  font-weight: 700;
   font-size: 1.5rem;
+  padding-top: 50px;
 }
 .education-section {
   margin-left: 15%;
@@ -30,10 +36,32 @@ body {
   border: solid black 2px;
   margin-bottom: 5%;
   margin-top: 2%;
+  font-size: 1.5rem;
 }
+.card-title {
+  font-size: 2rem;
+}
+.card-subtitle {
+  font-size: 2rem;
+  margin-top: 5%;
+  margin-bottom: 5%;
 
+}
 .portfolio-card {
   margin-bottom: 5%;
+}
+
+.school-name {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+.school-diploma {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.school-major {
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 a {
@@ -111,7 +139,7 @@ a {
   color: #3399FF;
 }
 #github-icon:hover {
-  color: purple;
+  color: #6e5494;
 }
 #linkedin-icon:hover {
   color: royalblue;
@@ -120,5 +148,5 @@ a {
   color: red;
 }
 #instagram-icon:hover {
-  color: #bc2a8d;
+  color: #cd486b;
 }
