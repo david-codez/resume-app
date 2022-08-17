@@ -7,6 +7,10 @@ body {
   font-weight: 900;
 }
 
+a {
+  color: white;
+}
+
 .accordion-header {
   text-decoration: underline;
   padding-bottom: 10px;
@@ -62,6 +66,9 @@ body {
 .school-major {
   font-size: 1.1rem;
   font-weight: 700;
+}
+.page-header {
+  text-align: center;
 }
 
 a {
@@ -149,4 +156,7 @@ a {
 }
 #instagram-icon:hover {
   color: #cd486b;
+}
+#sass-icon:hover {
+  color: #CD6799;
 }

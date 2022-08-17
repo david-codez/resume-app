@@ -3,9 +3,6 @@ import { Col, Row, Container, Card } from 'react-bootstrap'
 import Link from 'next/link'
 
 export default function PortfolioSection() {
-    const todoListUrl = 'https://to-do-list-app-mu.vercel.app/'
-    const pokedexUrl = 'https://pokedex-mu-nine-85.vercel.app'
-    const hangmanUrl = 'https://hangman-woad.vercel.app'
 
     return (
         <>

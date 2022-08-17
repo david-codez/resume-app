@@ -14,6 +14,7 @@ import {
     SiCplusplus,
     SiMaterialui,
     SiGit,
+    SiSass
 } from 'react-icons/si'
 import { Row, Col } from 'react-bootstrap'
 import { Tooltip } from '@mui/material'
@@ -102,6 +103,11 @@ export default function FrameworkIcons() {
                 <Col>
                     <Tooltip title={<h6>Material UI</h6>} placement='top' arrow>
                         <SiMaterialui id='mui-icon' className='framework-icon' size={iconSize} />
+                    </Tooltip>
+                </Col>                
+                <Col>
+                    <Tooltip title={<h6>Sass</h6>} placement='top' arrow>
+                        <SiSass id='sass-icon' className='framework-icon' size={iconSize} />
                     </Tooltip>
                 </Col>
             </Row>
