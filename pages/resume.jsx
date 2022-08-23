@@ -28,9 +28,9 @@ export default function Resume () {
           </Container>
         </section>
         <section id='carousel-section'>
-          {/* <Container>
+          <Container>
             <Carousel />
-          </Container> */}
+          </Container>
         </section>
         
         <section className={styles.sectionConfig}>
