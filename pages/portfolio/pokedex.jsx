@@ -33,11 +33,6 @@ export default function Pokedex() {
                 <SiJavascript id='js-icon' className='framework-icon' size={iconSize} />
                 <RiReactjsFill id='react-icon' className='framework-icon' size={iconSize} />
                 <SiSass id='sass-icon' className='framework-icon' size={iconSize} />
-
-
-
-
-
             </Col>
             <Col sm={6}>
                 <h3>Description</h3>

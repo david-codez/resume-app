@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
-import {Container} from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 import styles from '../styles/Home.module.css'
 
@@ -20,9 +19,6 @@ export default function Home() {
             <a><h1>Click Here For Resume</h1></a>
           </Link>
         </Container>
-      
-
-
       </div>
     </>
 

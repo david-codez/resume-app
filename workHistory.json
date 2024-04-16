@@ -108,6 +108,16 @@
     "description": "ok we're almost done, thank god",
     "personalNotes": "for this last time, this is sample text"
 
+},
+{
+    "id": 10,
+    "company": "Auto Data Direct",
+    "position": ["Junior Software Engineer"],
+    "startYear": 2022,
+    "startMonth": "October", 
+    "endYear": "Current",
+    "description": "",
+    "personalNotes": ""
 }
 
 
