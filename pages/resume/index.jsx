@@ -17,8 +17,8 @@ const Resume = () => {
       <body className={styles.pageBody}>
         <section className={styles.nameSection}>
           <Container>
-            <h1 className={styles.titleHeader}>David A. Daniel</h1>
-            <h1 className={styles.titleSubHeader}>Web Developer</h1>
+            <h1 className={styles.titleHeader}>David Daniel</h1>
+            <h1 className={styles.titleSubHeader}>Software Engineer</h1>
           </Container>
         </section>
         <section className={styles.sectionConfig}>
