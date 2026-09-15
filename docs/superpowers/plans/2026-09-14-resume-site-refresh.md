@@ -232,6 +232,8 @@ export default function MyDocument() {
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
+  // A stray ~/package-lock.json otherwise makes Turbopack guess the wrong workspace root.
+  turbopack: { root: __dirname },
 }
 ```
 
@@ -366,6 +368,11 @@ In `components/resume/AboutMeSection.jsx` delete the two lines `import PersonIco
 ```
 
 In `components/resume/EducationSection.jsx` delete the line `import { CardContent, CardMedia, Typography} from '@mui/material'`.
+
+Two more compatibility fixes discovered on the first Next 16 build:
+
+- react-icons 5 has no `SiLinkedin` (Simple Icons dropped the LinkedIn mark). In `components/resume/SocialSection.jsx` change the import to `import { SiYoutube, SiGithub } from 'react-icons/si'` plus `import { FaLinkedin } from 'react-icons/fa'`, and change `<SiLinkedin ` to `<FaLinkedin `.
+- Turbopack cannot type a file with an uppercase extension. Run `git mv public/images/headshot.jpeg public/images/headshot.jpeg` and change the import in `components/resume/AboutMeSection.jsx` to `'../../public/images/headshot.jpeg'`. (Task 6 later produces the resized `headshot.jpg`; Task 10 deletes `headshot.jpeg`.)
 
 - [ ] **Step 10: Confirm no MUI or Emotion import remains**
 
@@ -985,11 +992,11 @@ Expected: FAIL with `Cannot find module '../../components/iconMap'`.
 ```js
 import { DiMsqlServer } from 'react-icons/di'
 import {
-  FaAws, FaBrain, FaCode, FaDatabase, FaFilePdf, FaJava, FaPlug, FaRobot, FaVial,
+  FaAws, FaBrain, FaCode, FaDatabase, FaFilePdf, FaJava, FaLinkedin, FaPlug, FaRobot, FaVial,
 } from 'react-icons/fa'
 import {
   SiApachemaven, SiBootstrap, SiCplusplus, SiDocker, SiExpress, SiGit, SiGithub, SiHibernate, SiHtml5, SiInstagram,
-  SiJavascript, SiJest, SiJunit5, SiKubernetes, SiLinkedin, SiMongodb, SiMui, SiNextdotjs, SiNodedotjs,
+  SiJavascript, SiJest, SiJunit5, SiKubernetes, SiMongodb, SiMui, SiNextdotjs, SiNodedotjs,
   SiOpenapiinitiative, SiPostgresql, SiPython, SiReact, SiRedux, SiSass, SiSonatype, SiSpringboot, SiTypescript,
   SiYoutube,
 } from 'react-icons/si'
@@ -1038,7 +1045,7 @@ const ICONS = {
   sass: SiSass,
   mui: SiMui,
   github: SiGithub,
-  linkedin: SiLinkedin,
+  linkedin: FaLinkedin,
   youtube: SiYoutube,
   instagram: SiInstagram,
 }
@@ -1262,7 +1269,7 @@ Expected: `phone absent from repo` (the binary PDF is checked by `pdftotext` in 
 
 ### Task 6: Hero section (lane `hero`)
 
-Build `HeroSection` driven by `profile.json` and produce the resized headshot. Lane rules: create only. The old name banner, social row, carousel and about-me block stay in place, and `headshot.JPG` and the three stock photos stay on disk, until Task 10 replaces and deletes them. Do not touch `pages/resume/index.jsx` or any stylesheet.
+Build `HeroSection` driven by `profile.json` and produce the resized headshot. Lane rules: create only. The old name banner, social row, carousel and about-me block stay in place, and `headshot.jpeg` and the three stock photos stay on disk, until Task 10 replaces and deletes them. Do not touch `pages/resume/index.jsx` or any stylesheet.
 
 **Files:**
 - Create: `components/resume/HeroSection.jsx`, `tests/components/HeroSection.test.jsx`, `public/images/headshot.jpg`
@@ -1412,11 +1419,11 @@ Expected: `Tests: 5 passed`.
 - [ ] **Step 5: Produce the resized headshot**
 
 ```bash
-convert public/images/headshot.JPG -auto-orient -resize 600x600^ -gravity center -extent 600x600 -quality 82 public/images/headshot.jpg
+convert public/images/headshot.jpeg -auto-orient -resize 600x600^ -gravity center -extent 600x600 -quality 82 public/images/headshot.jpg
 du -h public/images/headshot.jpg
 ```
 
-Expected: the new file is under 120K. Leave `headshot.JPG` in place; `AboutMeSection.jsx` still imports it and Task 10 deletes both.
+Expected: the new file is under 120K. Leave `headshot.jpeg` in place; `AboutMeSection.jsx` still imports it and Task 10 deletes both.
 
 - [ ] **Step 6: Verify and commit**
 
@@ -1894,6 +1901,7 @@ const siteUrl =
 
 module.exports = {
   reactStrictMode: true,
+  turbopack: { root: __dirname },
   env: {
     NEXT_PUBLIC_SITE_URL: siteUrl,
   },
@@ -2062,7 +2070,7 @@ Make `/` the resume, redirect `/resume`, add the sticky section navigation and t
 **Files:**
 - Create: `components/SectionNav.jsx`, `components/SocialLinks.jsx`, `components/Footer.jsx`, `components/personJsonLd.js`, `tests/components/SectionNav.test.jsx`, `tests/components/SocialLinks.test.jsx`, `tests/components/Footer.test.jsx`, `tests/components/personJsonLd.test.js`, `tests/pages/home.test.jsx`
 - Modify: `pages/index.jsx` (full rewrite), `pages/_app.js`, `pages/_document.js`, `next.config.js`, `styles/globals.css` (full rewrite), `components/resume/HeroSection.jsx`
-- Delete: `pages/resume/index.jsx`, `styles/Home.module.css`, `styles/resume.module.css`, `tests/smoke/home.test.jsx`, `components/FrameworkIcons.jsx`, `components/resume/AboutMeSection.jsx`, `components/resume/SocialSection.jsx`, `components/resume/Carousel.jsx`, `components/resume/JobAccordion.jsx`, `components/resume/JobHistorySection.jsx`, `components/resume/PortfolioSection.jsx`, `workHistory.json`, `public/images/headshot.JPG`, `public/images/pic1.jpg`, `public/images/pic2.jpg`, `public/images/pic3.jpg`
+- Delete: `pages/resume/index.jsx`, `styles/Home.module.css`, `styles/resume.module.css`, `tests/smoke/home.test.jsx`, `components/FrameworkIcons.jsx`, `components/resume/AboutMeSection.jsx`, `components/resume/SocialSection.jsx`, `components/resume/Carousel.jsx`, `components/resume/JobAccordion.jsx`, `components/resume/JobHistorySection.jsx`, `components/resume/PortfolioSection.jsx`, `workHistory.json`, `public/images/headshot.jpeg`, `public/images/pic1.jpg`, `public/images/pic2.jpg`, `public/images/pic3.jpg`
 
 **Interfaces:**
 - Consumes: every section component (Tasks 4, 6–9), `SiteHead` (Task 9), all five content files.
@@ -2415,8 +2423,8 @@ export default function Home() {
 ```bash
 git rm pages/resume/index.jsx styles/Home.module.css styles/resume.module.css
 git rm components/FrameworkIcons.jsx components/resume/AboutMeSection.jsx components/resume/SocialSection.jsx components/resume/Carousel.jsx components/resume/JobAccordion.jsx components/resume/JobHistorySection.jsx components/resume/PortfolioSection.jsx workHistory.json
-git rm public/images/headshot.JPG public/images/pic1.jpg public/images/pic2.jpg public/images/pic3.jpg
-grep -rn "Home.module\|resume.module\|FrameworkIcons\|AboutMeSection\|SocialSection\|Carousel\|JobAccordion\|JobHistorySection\|PortfolioSection\|workHistory\|headshot.JPG\|pic[123].jpg" pages components tests || echo "no stale references"
+git rm public/images/headshot.jpeg public/images/pic1.jpg public/images/pic2.jpg public/images/pic3.jpg
+grep -rn "Home.module\|resume.module\|FrameworkIcons\|AboutMeSection\|SocialSection\|Carousel\|JobAccordion\|JobHistorySection\|PortfolioSection\|workHistory\|headshot.jpeg\|pic[123].jpg" pages components tests || echo "no stale references"
 ```
 
 Expected: `no stale references`. The legacy page was the only importer of every deleted file, so the build stays green once the new `pages/index.jsx` above is in place.
@@ -2443,6 +2451,7 @@ const siteUrl =
 
 module.exports = {
   reactStrictMode: true,
+  turbopack: { root: __dirname },
   env: {
     NEXT_PUBLIC_SITE_URL: siteUrl,
   },
@@ -2714,7 +2723,7 @@ Do not push. Report to the user: the branch name, the commit list, the acceptanc
 
 **Spec coverage.** §2 findings → Content (T3, T6 carousel removal, T9 summaries, content test), Readability (T2 `data-bs-theme`), Phone layout (T4 breakpoints and visible labels), Security (T2), Metadata/a11y (T2 `lang`, T6/T10 `aria-label` and `rel`, T9 SiteHead, T10 JSON-LD and single h1), Structure (T2 Bootstrap in `_app`, nested body, config; T10 redirect), Duplication (T7, T8, T9), Assets (T1 unused files, T6 headshot and stock photos, T8 graduation photo), Tooling (T1, T2, T11). §3.1 resume text → T3 verbatim, T5 PDF. §3.2 carried-forward roles, schools and skills → T3 (ten roles with real notes, two schools, merged skill groups), T7, T8, T4. §3.3 placeholder strings → T3 content test regex and T10 home test. §4 decisions 1–11 → T3/T7/T8, T5, T2, T2, T1, T10, all section tasks, T9, T6, T3, T9/T10 respectively. §7 acceptance → T11 Steps 3–4 plus T10 Step 20.
 
-**Lane safety.** Tasks 4–9 create files only within their claims in the Lanes table; none edits `styles/*.css`, `pages/index.jsx`, `package.json` or another lane's files. The only shared-file write inside a lane is Task 8's two-line change to `pages/resume/index.jsx`, which no other lane touches. Every file a lane leaves in place (old components, `workHistory.json`, `headshot.JPG`, the stock photos) is deleted in Task 10 Step 15, and the grep there proves nothing still imports them. Task 3 owns `components/iconMap.js` so that Tasks 4, 6 and 9 consume it rather than race to create it.
+**Lane safety.** Tasks 4–9 create files only within their claims in the Lanes table; none edits `styles/*.css`, `pages/index.jsx`, `package.json` or another lane's files. The only shared-file write inside a lane is Task 8's two-line change to `pages/resume/index.jsx`, which no other lane touches. Every file a lane leaves in place (old components, `workHistory.json`, `headshot.jpeg`, the stock photos) is deleted in Task 10 Step 15, and the grep there proves nothing still imports them. Task 3 owns `components/iconMap.js` so that Tasks 4, 6 and 9 consume it rather than race to create it.
 
 **Placeholder scan.** No TBD/TODO. Every code step shows full code. Contingencies (ESLint import form, icon export names) name the exact alternative.
 
