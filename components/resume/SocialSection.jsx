@@ -1,7 +1,8 @@
 import React from 'react'
 import Link  from 'next/link'
 import { Row, Col } from 'react-bootstrap'
-import { SiLinkedin, SiYoutube, SiGithub } from "react-icons/si"
+import { SiYoutube, SiGithub } from 'react-icons/si'
+import { FaLinkedin } from 'react-icons/fa'
 import { RiInstagramFill } from 'react-icons/ri'
 
 
@@ -22,13 +23,13 @@ export default function SocialSection() {
         <div>
             <Row>
                 <Col>
-                   <Link href={socialUrls.github}><a><SiGithub id='github-icon' className='social-icons' size={iconSize} /></a></Link>
-                   <Link href={socialUrls.linkedin}><a><SiLinkedin id='linkedin-icon' className='social-icons' size={iconSize}/></a></Link>
-                   <Link href={socialUrls.youtube}><a><SiYoutube id='youtube-icon' className='social-icons' size={iconSize}/></a></Link>
-                   <Link href={socialUrls.instagram}><a><RiInstagramFill id='instagram-icon' className='social-icons' size={iconSize}/></a></Link>
+                   <Link href={socialUrls.github}><SiGithub id='github-icon' className='social-icons' size={iconSize} /></Link>
+                   <Link href={socialUrls.linkedin}><FaLinkedin id='linkedin-icon' className='social-icons' size={iconSize}/></Link>
+                   <Link href={socialUrls.youtube}><SiYoutube id='youtube-icon' className='social-icons' size={iconSize}/></Link>
+                   <Link href={socialUrls.instagram}><RiInstagramFill id='instagram-icon' className='social-icons' size={iconSize}/></Link>
                    
                 </Col>
             </Row>
         </div>
-    )
+    );
 }

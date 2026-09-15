@@ -19,33 +19,33 @@ export default function ToDoList() {
 
     return (
         <div>
-        <h1 className='page-header'>To Do List</h1>
-        <Image src={toDoListImage} alt='To Do List' height='300' width='500' />
-        <Link href={todoListUrl}><a><h2>Click Here For Project</h2></a></Link>
-        <hr />
+            <h1 className='page-header'>To Do List</h1>
+            <Image src={toDoListImage} alt='To Do List' height='300' width='500' />
+            <Link href={todoListUrl}><h2>Click Here For Project</h2></Link>
+            <hr />
 
-        <Row>
-            <Col sm={6}>
-                <h3>Technologies Used</h3>
-                <TiHtml5 id='html-icon' className='framework-icon' size={iconSize} />
-                <TbBrandCss3 id='css-icon' className='framework-icon' size ={iconSize} />
-                <SiBootstrap id='bootstrap-icon' className='framework-icon' size={iconSize} />
-                <SiJavascript id='js-icon' className='framework-icon' size={iconSize} />
-                <RiReactjsFill id='react-icon' className='framework-icon' size={iconSize} />
-                <SiSass id='sass-icon' className='framework-icon' size={iconSize} />
-
-
+            <Row>
+                <Col sm={6}>
+                    <h3>Technologies Used</h3>
+                    <TiHtml5 id='html-icon' className='framework-icon' size={iconSize} />
+                    <TbBrandCss3 id='css-icon' className='framework-icon' size ={iconSize} />
+                    <SiBootstrap id='bootstrap-icon' className='framework-icon' size={iconSize} />
+                    <SiJavascript id='js-icon' className='framework-icon' size={iconSize} />
+                    <RiReactjsFill id='react-icon' className='framework-icon' size={iconSize} />
+                    <SiSass id='sass-icon' className='framework-icon' size={iconSize} />
 
 
 
-            </Col>
-            <Col sm={6}>
-                <h3>Description</h3>
 
-            </Col>
-        </Row>
-        
+
+                </Col>
+                <Col sm={6}>
+                    <h3>Description</h3>
+
+                </Col>
+            </Row>
+
         </div>
-    )
+    );
 
 }

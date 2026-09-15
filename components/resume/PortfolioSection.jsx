@@ -10,49 +10,49 @@ export default function PortfolioSection() {
                 <Row>
                     <Col md='4' align='center'>
                         <Link href='/portfolio/to-do-list'>
-                            <a>
-                                <Card border='white' bg ='black' className='portfolio-card' style={{ width: '13rem' }}>
-                                    <Card.Img variant='top' src='/images/to-do-list-screenshot.png' alt='to do list' height='200' />
-                                    <Card.Body>
-                                        <Card.Title>To Do List App</Card.Title>
-                                        {/* <Card.Text>
-                                            To Do List App
-                                        </Card.Text> */}
-                                    </Card.Body>
-                                </Card>
-                            </a>
+
+                            <Card border='white' bg ='black' className='portfolio-card' style={{ width: '13rem' }}>
+                                <Card.Img variant='top' src='/images/to-do-list-screenshot.png' alt='to do list' height='200' />
+                                <Card.Body>
+                                    <Card.Title>To Do List App</Card.Title>
+                                    {/* <Card.Text>
+                                        To Do List App
+                                    </Card.Text> */}
+                                </Card.Body>
+                            </Card>
+
                         </Link>
                     </Col>
                     <Col md='4' align='center'>
                         <Link href='/portfolio/pokedex'>
-                            <a>
-                                <Card border='white' bg ='black' className='portfolio-card' style={{ width: '13rem' }}>
-                                    <Card.Img variant='top' src='/images/pokedex-screenshot.png' alt='pokedex' height='200'/>
-                                    <Card.Body>
-                                        <Card.Title>Pokedex App</Card.Title>
-                                        {/* <Card.Text>
-                                            To Do List App
-                                        </Card.Text> */}
-                                    </Card.Body>
-                                </Card>
-                            </a>
-                            </Link>
+
+                            <Card border='white' bg ='black' className='portfolio-card' style={{ width: '13rem' }}>
+                                <Card.Img variant='top' src='/images/pokedex-screenshot.png' alt='pokedex' height='200'/>
+                                <Card.Body>
+                                    <Card.Title>Pokedex App</Card.Title>
+                                    {/* <Card.Text>
+                                        To Do List App
+                                    </Card.Text> */}
+                                </Card.Body>
+                            </Card>
+
+                        </Link>
                     </Col>
                     <Col md='4' align='center'>
                         <Link href='/portfolio/hangman' className='portfolio-card'>
-                            <a>
-                                <Card border='white' bg ='black' style={{ width: '13rem' }}>
-                                    <Card.Img variant='top' src='/images/hangman-screenshot.png' alt='hangman' height='200'/>
-                                    <Card.Body>
-                                        <Card.Title>Hangman App</Card.Title>
-                                    
-                                    </Card.Body>
-                                </Card>
-                            </a>
+
+                            <Card border='white' bg ='black' style={{ width: '13rem' }}>
+                                <Card.Img variant='top' src='/images/hangman-screenshot.png' alt='hangman' height='200'/>
+                                <Card.Body>
+                                    <Card.Title>Hangman App</Card.Title>
+                                
+                                </Card.Body>
+                            </Card>
+
                         </Link>
                     </Col>
                 </Row>
             </Container>
         </>
-    )
+    );
 }

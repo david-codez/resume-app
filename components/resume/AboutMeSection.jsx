@@ -1,9 +1,7 @@
 import React from 'react'
-import PersonIcon from '@mui/icons-material/Person';
 import { Col, Row } from 'react-bootstrap';
-import {Typography} from '@mui/material'
 import Image from 'next/image'
-import headshot from '../../public/images/headshot.JPG'
+import headshot from '../../public/images/headshot.jpeg'
 
 export default function AboutMeSection() {
 
@@ -12,13 +10,13 @@ export default function AboutMeSection() {
         <Row>
             <Col md='4'>
                 <div>
-                  <Image 
+                  <Image
                     src={headshot}
-                    alt='Headshot Picture'
-                    layout='responsive'
-                    height={400}
+                    alt="Headshot Picture"
                     width={300}
-                    className='aboutMeImage'
+                    height={400}
+                    style={{ width: '100%', height: 'auto' }}
+                    className="aboutMeImage"
                   />
                 </div>
             </Col>

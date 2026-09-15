@@ -1,163 +1,40 @@
-import React, { useState, useEffect} from 'react'
-import  { TiHtml5 }  from "react-icons/ti"
-import { TbBrandCss3, TbBrandNextjs } from 'react-icons/tb'
+import { Col, Row } from 'react-bootstrap'
+import { FaJava, FaNodeJs } from 'react-icons/fa'
 import { RiReactjsFill } from 'react-icons/ri'
-import { FaNodeJs } from 'react-icons/fa'
-import { 
-    SiRedux, 
-    SiPython, 
-    SiExpress, 
-    SiBootstrap, 
-    SiJavascript, 
-    SiMongodb,
-    SiCsharp,
-    SiCplusplus,
-    SiMui,
-    SiGit,
-    SiSass
+import {
+  SiBootstrap, SiCplusplus, SiExpress, SiGit, SiJavascript, SiMongodb, SiMui, SiPython, SiRedux, SiSass,
 } from 'react-icons/si'
-import { Row, Col } from 'react-bootstrap'
-import { Tooltip } from '@mui/material'
+import { TbBrandCSharp, TbBrandCss3, TbBrandNextjs } from 'react-icons/tb'
+import { TiHtml5 } from 'react-icons/ti'
 
-
-
-
-
+const FRAMEWORKS = [
+  { name: 'HTML5', Icon: TiHtml5 },
+  { name: 'CSS', Icon: TbBrandCss3 },
+  { name: 'Bootstrap', Icon: SiBootstrap },
+  { name: 'JavaScript', Icon: SiJavascript },
+  { name: 'React', Icon: RiReactjsFill },
+  { name: 'Redux', Icon: SiRedux },
+  { name: 'Node', Icon: FaNodeJs },
+  { name: 'Next JS', Icon: TbBrandNextjs },
+  { name: 'Git', Icon: SiGit },
+  { name: 'Python', Icon: SiPython },
+  { name: 'Express JS', Icon: SiExpress },
+  { name: 'MongoDB', Icon: SiMongodb },
+  { name: 'C Sharp', Icon: TbBrandCSharp },
+  { name: 'C++', Icon: SiCplusplus },
+  { name: 'Material UI', Icon: SiMui },
+  { name: 'Java', Icon: FaJava },
+  { name: 'Sass', Icon: SiSass },
+]
 
 export default function FrameworkIcons() {
-    const iconSize = '6rem'
-    return (
-        <div>
-            <Row>
-                <Col>
-                    <Tooltip title='HTML5' placement='top' arrow>
-                        <div>
-
-                        <TiHtml5    id='html-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='CSS' placement='top' arrow>
-                        <div>
-
-                        <TbBrandCss3 id='css-icon' className='framework-icon' size ={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='Bootstrap' placement='top' arrow>
-                        <div>
-
-                        <SiBootstrap id='bootstrap-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='JavaScript' placement='top' arrow>
-                        <div>
-
-                        <SiJavascript id='js-icon' className='framework-icon' size={iconSize} />
-                        </div>
-
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='React' placement='top' arrow>
-                        <div>
-
-                        <RiReactjsFill id='react-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='Redux' placement='top' arrow>
-                        <div>
-
-                        <SiRedux id='redux-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>   
-                <Col>
-                    <Tooltip title='Node' placement='top' arrow>
-                        <div>
-
-                        <FaNodeJs id='node-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='Next JS' placement='top' arrow>
-                        <div>
-
-                    <TbBrandNextjs id='nextjs-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='Git' placement='top' arrow>
-                        <div>
-
-                        <SiGit id='git-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='Python' placement='top' arrow>
-                        <div>
-
-                    <SiPython id='python-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='Express JS' placement='top' arrow>
-                        <div>
-
-                    <SiExpress id='express-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='MongoDB' placement='top' arrow>
-                        <div>
-
-                        <SiMongodb id='mongodb-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='C Sharp' placement='top' arrow>
-                        <div>
-
-                        <SiCsharp id='csharp-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='C++' placement='top' arrow>
-                        <div>
-
-                    <SiCplusplus id='cplusplus-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-                <Col>
-                    <Tooltip title='Material UI' placement='top' arrow>
-                        <div>
-
-                        <SiMui id='mui-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>                
-                <Col>
-                    <Tooltip title='Sass' placement='top' arrow>
-                        <div>
-                        <SiSass id='sass-icon' className='framework-icon' size={iconSize} />
-                        </div>
-                    </Tooltip>
-                </Col>
-            </Row>
-        </div>
-    )
+  return (
+    <Row>
+      {FRAMEWORKS.map((framework) => (
+        <Col key={framework.name} xs={4} md={2} className="text-center">
+          <framework.Icon title={framework.name} className="framework-icon" size="4rem" />
+        </Col>
+      ))}
+    </Row>
+  )
 }

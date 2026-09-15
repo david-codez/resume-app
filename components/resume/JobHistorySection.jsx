@@ -1,27 +1,13 @@
-import React from 'react'
-import jobHistory from '../../workHistory.json'
+import { Accordion } from 'react-bootstrap'
 import JobAccordion from './JobAccordion'
 
-
-
-
-export default function JobHistorySection() {
-
-    const jobs = jobHistory.reverse()
-
+export default function JobHistorySection({ jobs }) {
+  const newestFirst = [...jobs].reverse()
   return (
-    <div>
-    
-     {
-        jobs.map((job) => (
-         <div key={job.id}>
-          <JobAccordion job={job} />
-         </div>
-        ))
-     }
-    </div>
-    
-
+    <Accordion>
+      {newestFirst.map((job) => (
+        <JobAccordion key={job.id} job={job} />
+      ))}
+    </Accordion>
   )
 }
-

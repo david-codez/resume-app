@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from "react-bootstrap";
 import FrameworkIcons from "../../components/FrameworkIcons";
 import AboutMeSection from '../../components/resume/AboutMeSection';
@@ -11,10 +10,9 @@ import styles from '../../styles/resume.module.css';
 import jobHistory from '../../workHistory.json';
 
 const Resume = () => {
-  if (!styles) return null
   return (
   
-      <body className={styles.pageBody}>
+      <div className={styles.pageBody}>
         <section className={styles.nameSection}>
           <Container>
             <h1 className={styles.titleHeader}>David Daniel</h1>
@@ -58,11 +56,11 @@ const Resume = () => {
         <section className={styles.sectionConfig}>
           <Container>
             <h1 className={styles.sectionHeader}>Job History</h1>
-            <JobHistorySection jobHistory={jobHistory} />
+            <JobHistorySection jobs={jobHistory} />
           </Container>
         </section>
      
-      </body>
+      </div>
       
       
   

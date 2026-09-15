@@ -1,6 +1,5 @@
 import React from 'react'
 import {Col, Row } from 'react-bootstrap'
-import { CardContent, CardMedia, Typography} from '@mui/material'
 import educationHistory from '../../educationHistory.json'
 import { Card } from 'react-bootstrap'
 

@@ -16,11 +16,10 @@ export default function Home() {
         <Container>
           <h1>David Daniel</h1>
           <Link href="/resume"> 
-            <a><h1>Click Here For Resume</h1></a>
+            <h1>Click Here For Resume</h1>
           </Link>
         </Container>
       </div>
     </>
-
-  )
+  );
 }
