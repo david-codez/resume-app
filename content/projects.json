@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "to-do-list",
+    "name": "To Do List",
+    "summary": "A task tracker with separate active and completed lists, built in React and styled with Bootstrap and Sass.",
+    "demoUrl": "https://to-do-list-app-mu.vercel.app/",
+    "image": "/images/to-do-list-screenshot.png",
+    "stack": [
+      { "name": "HTML5", "icon": "html" },
+      { "name": "CSS", "icon": "css" },
+      { "name": "Bootstrap", "icon": "bootstrap" },
+      { "name": "JavaScript", "icon": "javascript" },
+      { "name": "React", "icon": "react" },
+      { "name": "Sass", "icon": "sass" }
+    ]
+  },
+  {
+    "slug": "pokedex",
+    "name": "Pokedex",
+    "summary": "A Pokédex browser that looks up a Pokémon and shows its artwork and stats, built in React with Bootstrap and Sass.",
+    "demoUrl": "https://pokedex-mu-nine-85.vercel.app",
+    "image": "/images/pokedex-screenshot.png",
+    "stack": [
+      { "name": "HTML5", "icon": "html" },
+      { "name": "CSS", "icon": "css" },
+      { "name": "Bootstrap", "icon": "bootstrap" },
+      { "name": "JavaScript", "icon": "javascript" },
+      { "name": "React", "icon": "react" },
+      { "name": "Sass", "icon": "sass" }
+    ]
+  },
+  {
+    "slug": "hangman",
+    "name": "Hangman",
+    "summary": "A hangman word game with an on-screen keyboard and a drawn gallows, built with React and Next.js.",
+    "demoUrl": "https://hangman-woad.vercel.app",
+    "image": "/images/hangman-screenshot.png",
+    "stack": [
+      { "name": "HTML5", "icon": "html" },
+      { "name": "CSS", "icon": "css" },
+      { "name": "Bootstrap", "icon": "bootstrap" },
+      { "name": "JavaScript", "icon": "javascript" },
+      { "name": "React", "icon": "react" },
+      { "name": "Next.js", "icon": "nextjs" }
+    ]
+  }
+]

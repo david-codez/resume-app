@@ -1,0 +1,15 @@
+{
+  "name": "David Daniel",
+  "title": "Software Engineer",
+  "location": "Tallahassee, FL",
+  "email": "david.augustin10@gmail.com",
+  "summary": "Full-stack software engineer with four years building, testing, and operating enterprise systems in Java 17/21, React/Next.js, TypeScript, C#/.NET, PostgreSQL, and SQL Server across a large multi-application platform. Owns services end to end — design, test-first development, AWS/Kubernetes deployment, and production support — and builds AI-assisted engineering tooling used daily.",
+  "headshot": "/images/headshot.jpg",
+  "resumePdf": "/David_Daniel_Resume.pdf",
+  "social": [
+    { "label": "GitHub", "url": "https://github.com/david-codez", "icon": "github" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/david-daniel-79945522a/", "icon": "linkedin" },
+    { "label": "YouTube", "url": "https://www.youtube.com/channel/UCl3aPvjLOyJgbfmCbyhR9PA", "icon": "youtube" },
+    { "label": "Instagram", "url": "https://www.instagram.com/davidcodez/", "icon": "instagram" }
+  ]
+}
