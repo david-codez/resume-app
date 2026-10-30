@@ -59,6 +59,22 @@ test('renders no details for roles without notes', () => {
   expect(document.querySelector('details')).toBeNull()
 })
 
+test('lists the earlier roles in their own list under an Earlier experience lead-in', () => {
+  render(<ExperienceSection roles={roles} />)
+  expect(screen.getByText('Earlier experience').tagName).toBe('P')
+  const earlierList = screen.getByRole('list', { name: 'Earlier experience' })
+  const earlierItems = within(earlierList).getAllByRole('listitem')
+  expect(earlierItems).toHaveLength(2)
+  expect(within(earlierItems[0]).getByRole('heading', { level: 3, name: 'The Diner' })).toBeInTheDocument()
+  expect(within(earlierList).queryByText('Acme')).not.toBeInTheDocument()
+})
+
+test('omits the earlier experience list when there is only one role', () => {
+  render(<ExperienceSection roles={[roles[0]]} />)
+  expect(screen.queryByText('Earlier experience')).not.toBeInTheDocument()
+  expect(screen.queryByRole('list', { name: 'Earlier experience' })).not.toBeInTheDocument()
+})
+
 test('shows the location when a role has one', () => {
   render(<ExperienceSection roles={roles} />)
   expect(screen.getByText(/Here, FL/)).toBeInTheDocument()

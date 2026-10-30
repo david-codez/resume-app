@@ -20,6 +20,16 @@ function RoleHeading({ role }) {
   )
 }
 
+function HighlightList({ highlights }) {
+  return (
+    <ul className={styles.highlights}>
+      {highlights.map((highlight) => (
+        <li key={highlight}>{highlight}</li>
+      ))}
+    </ul>
+  )
+}
+
 export default function ExperienceSection({ roles }) {
   const [featuredRole, ...earlierRoles] = roles
   return (
@@ -27,41 +37,32 @@ export default function ExperienceSection({ roles }) {
       <Container>
         <h2 id="experience-heading" className="section-title">Experience</h2>
         {featuredRole ? (
-          <ol className={`${styles.timeline} reveal`}>
-            <li className={styles.entry}>
-              <div className={`${styles.featured} glass-card`}>
-                <RoleHeading role={featuredRole} />
-                {featuredRole.highlights.length > 0 ? (
-                  <ul className={styles.highlights}>
-                    {featuredRole.highlights.map((highlight) => (
-                      <li key={highlight}>{highlight}</li>
-                    ))}
-                  </ul>
-                ) : null}
-                {featuredRole.notes ? <p className={styles.notes}>{featuredRole.notes}</p> : null}
-              </div>
-            </li>
-            {earlierRoles.map((role) => (
-              <li className={styles.entry} key={role.id}>
-                <div className={styles.compact}>
+          <div className={`${styles.featuredEntry} reveal`}>
+            <div className={`${styles.featured} glass-card`}>
+              <RoleHeading role={featuredRole} />
+              {featuredRole.highlights.length > 0 ? <HighlightList highlights={featuredRole.highlights} /> : null}
+              {featuredRole.notes ? <p className={styles.notes}>{featuredRole.notes}</p> : null}
+            </div>
+          </div>
+        ) : null}
+        {earlierRoles.length > 0 ? (
+          <div className="reveal">
+            <p id="earlier-experience-label" className={styles.leadIn}>Earlier experience</p>
+            <ul className={styles.grid} aria-labelledby="earlier-experience-label">
+              {earlierRoles.map((role) => (
+                <li className={`${styles.card} glass-card`} key={role.id}>
                   <RoleHeading role={role} />
-                  {role.highlights.length > 0 ? (
-                    <ul className={styles.highlights}>
-                      {role.highlights.map((highlight) => (
-                        <li key={highlight}>{highlight}</li>
-                      ))}
-                    </ul>
-                  ) : null}
+                  {role.highlights.length > 0 ? <HighlightList highlights={role.highlights} /> : null}
                   {role.notes ? (
                     <details className={styles.details}>
                       <summary>Read more</summary>
                       <p className={styles.notes}>{role.notes}</p>
                     </details>
                   ) : null}
-                </div>
-              </li>
-            ))}
-          </ol>
+                </li>
+              ))}
+            </ul>
+          </div>
         ) : null}
       </Container>
     </section>
