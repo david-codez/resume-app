@@ -58,8 +58,44 @@ const ICONS = {
   instagram: SiInstagram,
 }
 
+const BRAND_COLORS = {
+  typescript: '#3178C6',
+  javascript: '#F7DF1E',
+  python: '#3776AB',
+  react: '#61DAFB',
+  nodejs: '#5FA04E',
+  springboot: '#6DB33F',
+  hibernate: '#59666C',
+  maven: '#C71A36',
+  docker: '#2496ED',
+  kubernetes: '#326CE5',
+  git: '#F03C2E',
+  postgresql: '#4169E1',
+  mongodb: '#47A248',
+  junit: '#25A162',
+  jest: '#C21325',
+  redux: '#764ABC',
+  sass: '#CC6699',
+  bootstrap: '#7952B3',
+  mui: '#007FFF',
+  html: '#E34F26',
+  css: '#1572B6',
+  openapi: '#6BA539',
+  cplusplus: '#00599C',
+  pdfbox: '#34A5DA',
+  nextjs: '#FFFFFF',
+  express: '#FFFFFF',
+  java: '#ED8B00',
+  csharp: '#9B4F96',
+  aws: '#FF9900',
+}
+
 export const KNOWN_ICON_KEYS = Object.keys(ICONS)
 
 export function iconFor(iconKey) {
   return ICONS[iconKey] ?? FALLBACK_ICON
+}
+
+export function brandColorFor(iconKey) {
+  return BRAND_COLORS[iconKey]
 }

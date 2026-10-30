@@ -27,10 +27,10 @@ export default function Home() {
       <SectionNav name={profile.name} />
       <main id="top">
         <HeroSection profile={profile} />
-        <SkillsSection skillGroups={skills} />
         <ExperienceSection roles={experience} />
         <ProjectsSection projects={projects} />
         <EducationSection schools={education} />
+        <SkillsSection skillGroups={skills} />
       </main>
       <Footer profile={profile} />
     </>

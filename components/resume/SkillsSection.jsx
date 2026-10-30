@@ -1,5 +1,5 @@
 import { Col, Container, Row } from 'react-bootstrap'
-import { iconFor } from '../iconMap'
+import { brandColorFor, iconFor } from '../iconMap'
 
 export default function SkillsSection({ skillGroups }) {
   return (
@@ -7,20 +7,29 @@ export default function SkillsSection({ skillGroups }) {
       <Container>
         <h2 id="skills-heading" className="text-center mb-4">Skills</h2>
         {skillGroups.map((group) => (
-          <div key={group.category} className="mb-4">
-            <h3 className="h6 text-uppercase text-body-secondary text-center mb-3">{group.category}</h3>
-            <Row as="ul" className="list-unstyled justify-content-center g-3 mb-0">
-              {group.skills.map((skill) => {
-                const Icon = iconFor(skill.icon)
-                return (
-                  <Col as="li" key={skill.name} xs={6} sm={4} md={3} lg={2} className="text-center">
-                    <Icon aria-hidden="true" size="2.5rem" className="skill-icon" />
-                    <div className="small mt-1">{skill.name}</div>
-                  </Col>
-                )
-              })}
-            </Row>
-          </div>
+          <Row key={group.category} className="mb-3 align-items-md-center">
+            <Col xs={12} md={3}>
+              <h3 className="h6 text-uppercase text-body-secondary mb-2 mb-md-0">{group.category}</h3>
+            </Col>
+            <Col xs={12} md={9}>
+              <ul className="list-unstyled d-flex flex-wrap gap-2 mb-0">
+                {group.skills.map((skill) => {
+                  const Icon = iconFor(skill.icon)
+                  const brandColor = brandColorFor(skill.icon)
+                  return (
+                    <li
+                      key={skill.name}
+                      className="skill-chip d-inline-flex align-items-center gap-2 border rounded-pill px-3 py-1 small text-nowrap"
+                      style={brandColor ? { '--skill-brand-color': brandColor } : undefined}
+                    >
+                      <Icon aria-hidden="true" size="1.25rem" className="skill-icon" />
+                      <span>{skill.name}</span>
+                    </li>
+                  )
+                })}
+              </ul>
+            </Col>
+          </Row>
         ))}
       </Container>
     </section>

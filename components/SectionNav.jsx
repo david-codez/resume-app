@@ -1,10 +1,10 @@
 import { Container, Nav, Navbar } from 'react-bootstrap'
 
 const SECTIONS = [
-  { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
+  { id: 'skills', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ]
 

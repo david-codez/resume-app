@@ -16,7 +16,18 @@ h3,
   transition: color 0.15s ease-in-out;
 }
 
-.skill-icon:hover,
 .social-link:hover {
   color: var(--bs-primary);
+}
+
+.skill-chip {
+  transition: border-color 0.15s ease-in-out;
+}
+
+.skill-chip:hover {
+  border-color: var(--skill-brand-color, var(--bs-primary)) !important;
+}
+
+.skill-chip:hover .skill-icon {
+  color: var(--skill-brand-color, var(--bs-primary));
 }

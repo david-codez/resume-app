@@ -10,6 +10,20 @@ test('renders one h1 and a named region for every resume section plus a footer',
   expect(screen.getByRole('contentinfo')).toBeInTheDocument()
 })
 
+test('places Skills after Education at the bottom of the page', () => {
+  render(<Home />)
+  const education = screen.getByRole('region', { name: 'Education' })
+  const skills = screen.getByRole('region', { name: 'Skills' })
+  expect(education.compareDocumentPosition(skills) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+})
+
+test('section navigation lists sections in page order', () => {
+  render(<Home />)
+  const nav = screen.getByRole('navigation', { name: 'Section navigation' })
+  const labels = within(nav).getAllByRole('link').map((link) => link.textContent).slice(1)
+  expect(labels).toEqual(['Experience', 'Projects', 'Education', 'Skills', 'Contact'])
+})
+
 test('section navigation links to every section', () => {
   render(<Home />)
   const nav = screen.getByRole('navigation', { name: 'Section navigation' })
