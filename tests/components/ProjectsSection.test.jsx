@@ -20,3 +20,16 @@ test('every project screenshot has a descriptive alt', () => {
   expect(screen.getByRole('img', { name: 'Hangman screenshot' })).toBeInTheDocument()
   expect(screen.getByRole('img', { name: 'Pokedex screenshot' })).toBeInTheDocument()
 })
+
+test('every project card lists its stack tool names', () => {
+  const stackedProjects = [
+    { ...projects[0], stack: [{ name: 'React', icon: 'react' }, { name: 'Next.js', icon: 'nextjs' }] },
+    { ...projects[1], stack: [{ name: 'Sass', icon: 'sass' }] },
+  ]
+  render(<ProjectsSection projects={stackedProjects} />)
+  const hangmanCard = screen.getByRole('heading', { level: 3, name: 'Hangman' }).closest('article')
+  expect(within(hangmanCard).getByText('React')).toBeInTheDocument()
+  expect(within(hangmanCard).getByText('Next.js')).toBeInTheDocument()
+  const pokedexCard = screen.getByRole('heading', { level: 3, name: 'Pokedex' }).closest('article')
+  expect(within(pokedexCard).getByText('Sass')).toBeInTheDocument()
+})

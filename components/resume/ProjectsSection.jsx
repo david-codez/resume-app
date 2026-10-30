@@ -1,33 +1,47 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Card, Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
+import { iconFor } from '../iconMap'
+import styles from './ProjectsSection.module.css'
 
 export default function ProjectsSection({ projects }) {
   return (
-    <section id="projects" aria-labelledby="projects-heading" className="py-5">
+    <section id="projects" aria-labelledby="projects-heading" className="site-section">
       <Container>
-        <h2 id="projects-heading" className="text-center mb-4">Projects</h2>
-        <Row className="g-4 justify-content-center">
+        <h2 id="projects-heading" className="section-title">Projects</h2>
+        <Row className="g-4 reveal">
           {projects.map((project) => (
-            <Col key={project.slug} sm={6} lg={4}>
-              <Card className="h-100">
-                <Image
-                  src={project.image}
-                  alt={`${project.name} screenshot`}
-                  width={640}
-                  height={400}
-                  className="card-img-top"
-                  style={{ height: 'auto' }}
-                />
-                <Card.Body>
-                  <Card.Title as="h3" className="h5">
-                    <Link href={`/portfolio/${project.slug}`} className="stretched-link text-decoration-none">
+            <Col key={project.slug} md={6} lg={4}>
+              <article className={`glass-card glass-card-interactive position-relative h-100 ${styles.card}`}>
+                <div className={styles.frame}>
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} screenshot`}
+                    width={640}
+                    height={400}
+                    className={styles.screenshot}
+                  />
+                </div>
+                <div className={styles.body}>
+                  <h3 className={styles.name}>
+                    <Link href={`/portfolio/${project.slug}`} className={`stretched-link ${styles.link}`}>
                       {project.name}
                     </Link>
-                  </Card.Title>
-                  <Card.Text>{project.summary}</Card.Text>
-                </Card.Body>
-              </Card>
+                  </h3>
+                  <p className={styles.summary}>{project.summary}</p>
+                  <ul className={styles.stack}>
+                    {project.stack.map((tool) => {
+                      const Icon = iconFor(tool.icon)
+                      return (
+                        <li key={tool.name} className={styles.tag}>
+                          <Icon aria-hidden="true" />
+                          <span>{tool.name}</span>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              </article>
             </Col>
           ))}
         </Row>

@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import SiteHead from '../../components/SiteHead'
 import { iconFor } from '../../components/iconMap'
 import projects from '../../content/projects.json'
+import styles from './project.module.css'
 
 export async function getStaticPaths() {
   return {
@@ -26,37 +27,46 @@ export default function ProjectPage({ project }) {
         path={`/portfolio/${project.slug}`}
       />
       <main>
-        <Container className="py-5">
-          <Link href="/#projects" className="d-inline-block mb-3">Back to projects</Link>
-          <h1>{project.name}</h1>
-          <p className="lead">{project.summary}</p>
+        <Container className={styles.page}>
+          <Link href="/#projects" className={styles.back}>Back to projects</Link>
+          <h1 className={styles.title}>{project.name}</h1>
+          <p className={styles.summary}>{project.summary}</p>
           <Row className="g-4 align-items-start">
             <Col md={7}>
-              <Image
-                src={project.image}
-                alt={`${project.name} screenshot`}
-                width={960}
-                height={600}
-                style={{ width: '100%', height: 'auto' }}
-                className="rounded border"
-                priority
-              />
+              <div className={`glass-card ${styles.screenshot}`}>
+                <Image
+                  src={project.image}
+                  alt={`${project.name} screenshot`}
+                  width={960}
+                  height={600}
+                  className={styles.image}
+                  priority
+                />
+              </div>
             </Col>
             <Col md={5}>
-              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary mb-4">
-                Open live demo
-              </a>
-              <h2 className="h5">Built with</h2>
-              <ul className="list-inline">
-                {project.stack.map((tool) => {
-                  const Icon = iconFor(tool.icon)
-                  return (
-                    <li key={tool.name} className="list-inline-item me-3">
-                      <Icon aria-hidden="true" /> {tool.name}
-                    </li>
-                  )
-                })}
-              </ul>
+              <div className={`glass-card ${styles.panel}`}>
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`btn-accent ${styles.demo}`}
+                >
+                  Open live demo
+                </a>
+                <h2 className={styles.stackHeading}>Built with</h2>
+                <ul className={styles.stack}>
+                  {project.stack.map((tool) => {
+                    const Icon = iconFor(tool.icon)
+                    return (
+                      <li key={tool.name} className={styles.tag}>
+                        <Icon aria-hidden="true" />
+                        <span>{tool.name}</span>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
             </Col>
           </Row>
         </Container>
