@@ -1,6 +1,42 @@
+:root {
+  --site-bg: #090d16;
+  --site-bg-raised: #0f1523;
+  --site-surface: rgba(255, 255, 255, 0.04);
+  --site-surface-hover: rgba(255, 255, 255, 0.08);
+  --site-border: rgba(255, 255, 255, 0.1);
+  --site-border-strong: rgba(124, 156, 255, 0.5);
+  --site-text-muted: #98a2b6;
+  --site-accent: #7c9cff;
+  --site-accent-alt: #5eead4;
+  --site-on-accent: #06101f;
+  --site-gradient: linear-gradient(120deg, var(--site-accent) 0%, var(--site-accent-alt) 100%);
+  --site-radius: 1rem;
+  --site-shadow: 0 1.25rem 3rem -1.5rem rgba(0, 0, 0, 0.8);
+}
+
+[data-bs-theme='dark'] {
+  --bs-body-bg: var(--site-bg);
+  --bs-body-color: #d5dbe7;
+  --bs-body-font-family: var(--font-body), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --bs-secondary-color: var(--site-text-muted);
+  --bs-border-color: var(--site-border);
+  --bs-link-color: var(--site-accent);
+  --bs-link-hover-color: var(--site-accent-alt);
+  --bs-link-color-rgb: 124, 156, 255;
+  --bs-link-hover-color-rgb: 94, 234, 212;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 4.5rem;
+}
+
+body {
+  background:
+    radial-gradient(60rem 32rem at 12% -8%, rgba(124, 156, 255, 0.16), transparent 62%),
+    radial-gradient(48rem 28rem at 96% 4%, rgba(94, 234, 212, 0.09), transparent 58%),
+    var(--site-bg);
+  background-repeat: no-repeat;
 }
 
 h1,
@@ -8,24 +44,133 @@ h2,
 h3,
 .navbar-brand {
   font-family: var(--font-heading), Georgia, serif;
+  letter-spacing: 0.01em;
 }
 
-.skill-icon,
+:focus-visible {
+  outline: 2px solid var(--site-accent);
+  outline-offset: 3px;
+}
+
+.site-section {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 3.5rem;
+  height: 0.25rem;
+  margin-top: 0.75rem;
+  border-radius: 999px;
+  background: var(--site-gradient);
+}
+
+.text-gradient {
+  background: var(--site-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-card {
+  background: var(--site-surface);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius);
+  box-shadow: var(--site-shadow);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-4px);
+  border-color: var(--site-border-strong);
+  background: var(--site-surface-hover);
+}
+
+.btn-accent,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, filter 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-accent {
+  background: var(--site-gradient);
+  color: var(--site-on-accent);
+  border: 1px solid transparent;
+}
+
+.btn-accent:hover {
+  color: var(--site-on-accent);
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--bs-body-color);
+  border: 1px solid var(--site-border);
+}
+
+.btn-ghost:hover {
+  color: var(--site-accent-alt);
+  border-color: var(--site-accent-alt);
+  transform: translateY(-2px);
+}
+
 .social-link {
   color: inherit;
   transition: color 0.15s ease-in-out;
 }
 
 .social-link:hover {
-  color: var(--bs-primary);
+  color: var(--site-accent-alt);
 }
 
-.skill-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
-  gap: 1.5rem 1rem;
+@keyframes site-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-.skill-cell:hover .skill-icon {
-  color: var(--skill-brand-color, var(--bs-primary));
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: site-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    animation: none;
+  }
+
+  .glass-card,
+  .btn-accent,
+  .btn-ghost {
+    transition: none;
+  }
 }
