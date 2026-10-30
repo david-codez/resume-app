@@ -11,7 +11,7 @@
 
 .skillGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(5.25rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr));
   justify-content: start;
   align-items: start;
   gap: 0.5rem;
@@ -47,7 +47,7 @@
 .skillName {
   font-size: 0.8125rem;
   line-height: 1.3;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 @media (prefers-reduced-motion: reduce) {

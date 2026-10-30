@@ -8,8 +8,8 @@ export default function SkillsSection({ skillGroups }) {
       <Container>
         <h2 id="skills-heading" className="section-title">Skills</h2>
         <Row className="reveal g-4">
-          {skillGroups.map((group) => (
-            <Col key={group.category} lg={6}>
+          {skillGroups.map((group, groupIndex) => (
+            <Col key={group.category} lg={groupIndex === skillGroups.length - 1 && skillGroups.length % 2 === 1 ? 12 : 6}>
               <div className="glass-card h-100 p-4">
                 <h3 className={styles.categoryTitle}>{group.category}</h3>
                 <ul className={`${styles.skillGrid} list-unstyled mb-0`}>

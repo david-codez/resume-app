@@ -17,7 +17,7 @@ const bodyFont = Inter({
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <div className={`${headingFont.variable} ${bodyFont.variable}`}>
+    <div className={`${headingFont.variable} ${bodyFont.variable} ${bodyFont.className}`}>
       <Component {...pageProps} />
     </div>
   )

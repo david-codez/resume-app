@@ -17,7 +17,6 @@
 [data-bs-theme='dark'] {
   --bs-body-bg: var(--site-bg);
   --bs-body-color: #d5dbe7;
-  --bs-body-font-family: var(--font-body), system-ui, -apple-system, 'Segoe UI', sans-serif;
   --bs-secondary-color: var(--site-text-muted);
   --bs-border-color: var(--site-border);
   --bs-link-color: var(--site-accent);
