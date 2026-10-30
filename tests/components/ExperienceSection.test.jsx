@@ -15,6 +15,13 @@ test('renders a region named Experience with every company and primary position'
   }
 })
 
+test('puts the section h2 above one h3 per role with no skipped levels', () => {
+  render(<ExperienceSection roles={roles} />)
+  expect(screen.getByRole('heading', { level: 2, name: 'Experience' })).toBeInTheDocument()
+  expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(roles.length)
+  expect(screen.queryByRole('heading', { level: 4 })).not.toBeInTheDocument()
+})
+
 test('lists earlier positions only for roles that had more than one', () => {
   render(<ExperienceSection roles={roles} />)
   expect(screen.getAllByText('Previously:')).toHaveLength(1)
@@ -28,25 +35,38 @@ test('shows an en-dash date range for each role', () => {
   expect(screen.getByText('June 2018 – July 2020')).toBeInTheDocument()
 })
 
-test('renders highlights as list items and notes as a paragraph, each only when present', () => {
+test('shows every highlight of the featured role as a list item without interaction', () => {
   render(<ExperienceSection roles={roles} />)
-  expect(screen.getByText('Built the widget.').tagName).toBe('LI')
-  expect(screen.getByText('Shipped the gadget.').tagName).toBe('LI')
-  expect(screen.getByText('I started as a busser and moved up.').tagName).toBe('P')
-  expect(screen.getAllByRole('heading', { level: 4, name: 'Highlights' })).toHaveLength(1)
-  expect(screen.getAllByRole('heading', { level: 4, name: 'Notes' })).toHaveLength(1)
+  const highlightList = screen.getByText('Built the widget.').closest('ul')
+  const highlightItems = within(highlightList).getAllByRole('listitem')
+  expect(highlightItems.map((item) => item.textContent)).toEqual(['Built the widget.', 'Shipped the gadget.'])
+  expect(screen.getByText('Built the widget.')).toBeVisible()
+  expect(screen.getByText('Shipped the gadget.')).toBeVisible()
 })
 
-test('expands the most recent role by default and collapses the rest', () => {
+test('exposes notes through a details element summarised as Read more', () => {
   render(<ExperienceSection roles={roles} />)
-  const toggles = screen.getAllByRole('button')
-  expect(toggles).toHaveLength(3)
-  expect(toggles[0]).toHaveAttribute('aria-expanded', 'true')
-  expect(toggles[1]).toHaveAttribute('aria-expanded', 'false')
-  expect(toggles[2]).toHaveAttribute('aria-expanded', 'false')
+  const summary = screen.getByText('Read more')
+  expect(summary.tagName).toBe('SUMMARY')
+  const details = summary.closest('details')
+  expect(details).not.toHaveAttribute('open')
+  expect(within(details).getByText('I started as a busser and moved up.')).toBeInTheDocument()
+})
+
+test('renders no details for roles without notes', () => {
+  render(<ExperienceSection roles={[roles[0], roles[2]]} />)
+  expect(screen.queryByText('Read more')).not.toBeInTheDocument()
+  expect(document.querySelector('details')).toBeNull()
 })
 
 test('shows the location when a role has one', () => {
   render(<ExperienceSection roles={roles} />)
   expect(screen.getByText(/Here, FL/)).toBeInTheDocument()
+})
+
+test('renders only the heading when there are no roles', () => {
+  render(<ExperienceSection roles={[]} />)
+  expect(screen.getByRole('heading', { level: 2, name: 'Experience' })).toBeInTheDocument()
+  expect(screen.queryByRole('list')).not.toBeInTheDocument()
+  expect(screen.queryAllByRole('heading', { level: 3 })).toHaveLength(0)
 })
