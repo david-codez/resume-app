@@ -15,42 +15,42 @@ export default function ControlledCarousel() {
           <Image
             className="d-block w-100"
             src="/images/pic1.jpg"
-            alt="First slide"
+            alt="Desk with several monitors showing code, lit in blue and red"
             height={800}
             width={1280}
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Full-stack engineering</h3>
+            <p>Java and Spring Boot services, React and Next.js front ends, backed by PostgreSQL and SQL Server.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <Image
             className="d-block w-100"
             src="/images/pic2.jpg"
-            alt="Second slide"
+            alt="Close-up of React component code on a dark screen"
             height={800}
             width={1280}
           />
   
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Modern front ends</h3>
+            <p>A ground-up React and TypeScript rewrite of the Electronic Lien &amp; Title product, rolled out across 14 states.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <Image
             className="d-block w-100"
             src="/images/pic3.jpg"
-            alt="Third slide"
+            alt="Hands typing on a keyboard in front of monitors"
             height={800}
             width={1280}
           />
   
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>Reliable delivery</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Legacy modernization, security hardening, and Kubernetes deployments.
             </p>
           </Carousel.Caption>
         </Carousel.Item>

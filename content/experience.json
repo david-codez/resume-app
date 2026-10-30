@@ -7,12 +7,13 @@
     "start": "October 2022",
     "end": "Present",
     "highlights": [
+      "Develop and maintain full-stack enterprise systems in Java 17/21, React/Next.js, TypeScript, and C#/.NET across a large multi-application platform.",
       "Core developer on the ground-up React/TypeScript rewrite of the Electronic Lien & Title (ELT) product: lien-management screens, per-state form validation, address standardization, and A/B-tested beta rollouts across 14 states; used by thousands of lienholders nationwide.",
-      "Launched electronic DMV title integrations for eight new states: built per-state XML mappers and data feeds in Java and C#/.NET, and led the statewide ELT provider switch for Iowa.",
+      "Launched electronic DMV title integrations for eight new states (PA, WI, CO, IL, MI, KS, SD, IA): built per-state XML mappers and data feeds in Java and C#/.NET, and led the statewide ELT provider switch for Iowa.",
       "Designed and built the customer-migration flow that onboards lienholders from a competing ELT vendor: React import UI, backend migration routes, bulk lien imports, and data reconciliation.",
-      "Lead development and maintenance of the CarLocate Monitoring Service, which helps rental-car companies track towed vehicles: architected and built its automated VIN-match pipeline — PGP-encrypted SFTP ingestion, matching against tow/salvage notices in FL, MS, and TX, and billing.",
+      "Lead development and maintenance of the CarLocate Monitoring Service, which helps rental-car companies track towed vehicles: architected and built its automated VIN-match pipeline — PGP-encrypted SFTP ingestion, matching against public tow/salvage notices in FL, MS, and TX, output distribution, and billing.",
       "Modernized platform infrastructure: migrated ~20 backend services to updated shared libraries and AWS SDK v2, upgraded services to Java 17, converted a dozen legacy jobs to Kubernetes CronJobs, and moved DMV form generation to Apache PDFBox.",
-      "Improved platform security: re-keyed the company-wide account-restriction system to UUID-based identity across ~10 services, eliminated SQL-injection points, and hardened file-upload and PDF-merge handling.",
+      "Improved platform security: re-keyed the company-wide account-restriction system to UUID-based identity across ~10 services, eliminated SQL-injection points, and hardened file-upload and PDF-merge handling (size limits, permission-scoped temp files, memory-bounded PDF merging).",
       "Delivered internal admin tooling (funds transfers, webinar management, promo-code administration) end to end with permission-guarded REST routes and validated React frontends.",
       "Own services end to end in production: test-first development with JUnit and Jest, code reviews on every release, AWS and Kubernetes deployments, live troubleshooting, and system documentation.",
       "Use AI coding agents daily for implementation, test scaffolding, and code review; built an internal MCP server (Node.js/PostgreSQL) that gives agents direct query access to the team’s project-tracking system."
