@@ -26,8 +26,9 @@ test('renders a skill with an unknown icon key without throwing', () => {
   expect(screen.getByText('Mystery')).toBeInTheDocument()
 })
 
-test('a branded skill chip carries its brand color and an unbranded one does not', () => {
+test('a branded skill cell carries its brand color and an unbranded one does not', () => {
   render(<SkillsSection skillGroups={skillGroups} />)
+  expect(screen.getByText('React').closest('li')).toHaveClass('skill-cell')
   expect(screen.getByText('React').closest('li')).toHaveStyle({ '--skill-brand-color': '#61DAFB' })
   expect(screen.getByText('SQL').closest('li').style.getPropertyValue('--skill-brand-color')).toBe('')
 })

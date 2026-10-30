@@ -20,14 +20,12 @@ h3,
   color: var(--bs-primary);
 }
 
-.skill-chip {
-  transition: border-color 0.15s ease-in-out;
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+  gap: 1.5rem 1rem;
 }
 
-.skill-chip:hover {
-  border-color: var(--skill-brand-color, var(--bs-primary)) !important;
-}
-
-.skill-chip:hover .skill-icon {
+.skill-cell:hover .skill-icon {
   color: var(--skill-brand-color, var(--bs-primary));
 }
