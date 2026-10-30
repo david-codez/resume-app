@@ -1,85 +1,37 @@
-import React from 'react'
-import {Col, Row } from 'react-bootstrap'
-import educationHistory from '../../educationHistory.json'
-import { Card } from 'react-bootstrap'
+import Image from 'next/image'
+import { Card, Col, Container, Row } from 'react-bootstrap'
 
-// TODO refactor cards to react bootstrap
-// ! bg and border attributes dont affect mui cards
-
-
-export default function EducationSection() {
+export default function EducationSection({ schools }) {
   return (
-    <>
-        <Row>
-            <Col lg='4' align='center' >
-                <Card className='schoolCard' border='white' bg='black' style={{ width: '18rem' }}>
-                    <Card.Img
-                        variant='top'
-                        height="240"
-                        width='150'
-                        src="/images/hs_grad_photo.jpeg"
-                        alt="High School Graduation Photo"
-                    />
-                     <Card.Body>
-                        <Card.Title>
-                            <span className='school-name'>{educationHistory[0].school}</span>
-                        </Card.Title>
-                        <Card.Subtitle>
-                            <span className='school-diploma'>{educationHistory[0].diploma}</span>
-                        </Card.Subtitle>
-                        <Card.Text>
-                            {educationHistory[0].startYear + " - " + educationHistory[0].endYear}
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
+    <section id="education" aria-labelledby="education-heading" className="py-5">
+      <Container>
+        <h2 id="education-heading" className="text-center mb-4">Education</h2>
+        <Row className="g-4 justify-content-center">
+          {schools.map((school) => (
+            <Col key={school.id} sm={8} md={6} lg={4}>
+              <Card className="h-100">
+                {school.image ? (
+                  <Image
+                    src={school.image}
+                    alt={`${school.school} graduation photo`}
+                    width={800}
+                    height={600}
+                    className="card-img-top"
+                    style={{ height: 'auto' }}
+                  />
+                ) : null}
+                <Card.Body>
+                  <Card.Title as="h3" className="h5">{school.credential}</Card.Title>
+                  {school.major ? <Card.Text className="mb-1">{school.major}</Card.Text> : null}
+                  <Card.Subtitle className="mb-2">{school.school}</Card.Subtitle>
+                  {school.location ? <Card.Text className="text-body-secondary mb-1">{school.location}</Card.Text> : null}
+                  <Card.Text className="text-body-secondary">{`${school.start} – ${school.end}`}</Card.Text>
+                </Card.Body>
+              </Card>
             </Col>
-            <Col lg='4' align='center' >
-                <Card className='schoolCard' border='white' bg='black' style={{ width: '18rem' }}>
-                    <Card.Img
-                        height="240"
-                        width='150'
-                        src="/images/aa_grad_photo.jpeg"
-                        alt="AA Graduation Photo"
-                    />
-                     <Card.Body>
-                        <Card.Title>
-                            <span className='school-name'>{educationHistory[1].school}</span>
-                        </Card.Title>
-                        <Card.Subtitle>
-                           <span className='school-diploma'>{educationHistory[1].diploma}</span> 
-                        </Card.Subtitle>
-                        <Card.Text >
-                            {educationHistory[1].startYear + " - " + educationHistory[1].endYear}
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            </Col>
-            <Col lg='4' align='center' >
-                <Card className='schoolCard' border='white' bg='black' style={{ width: '18rem' }}>
-                    <Card.Img
-                        height="240"
-                        width='150'
-                        src="/images/work-in-progress.jpg"
-                        alt="Work In Progress"
-                    />
-                     <Card.Body>
-                        <Card.Title >
-                            <span className='school-name'>{educationHistory[2].school}</span>
-                        </Card.Title>
-                        <Card.Subtitle >
-                            <span className='school-diploma'>{ educationHistory[2].diploma }</span>
-                        </Card.Subtitle>
-                        <Card.Subtitle >
-                            <span className='school-major'>{educationHistory[2].major}</span>
-                        </Card.Subtitle>
-                        <Card.Text >
-                            {educationHistory[2].startYear + " - " + educationHistory[2].endYear}
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            </Col>
+          ))}
         </Row>
-    </>
+      </Container>
+    </section>
   )
 }
-
