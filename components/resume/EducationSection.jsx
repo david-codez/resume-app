@@ -1,36 +1,38 @@
 import Image from 'next/image'
-import { Card, Col, Container, Row } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
+import styles from './EducationSection.module.css'
 
 export default function EducationSection({ schools }) {
   return (
-    <section id="education" aria-labelledby="education-heading" className="py-5">
+    <section id="education" aria-labelledby="education-heading" className="site-section">
       <Container>
-        <h2 id="education-heading" className="text-center mb-4">Education</h2>
-        <Row className="g-4 justify-content-center">
+        <h2 id="education-heading" className="section-title">Education</h2>
+        <ul className={`${styles.list} reveal`}>
           {schools.map((school) => (
-            <Col key={school.id} sm={8} md={6} lg={4}>
-              <Card className="h-100">
-                {school.image ? (
+            <li key={school.id} className={`${styles.entry} glass-card`}>
+              {school.image ? (
+                <span className={styles.photoRing}>
                   <Image
                     src={school.image}
                     alt={`${school.school} graduation photo`}
-                    width={800}
-                    height={600}
-                    className="card-img-top"
-                    style={{ height: 'auto' }}
+                    width={72}
+                    height={72}
+                    className={styles.photo}
                   />
-                ) : null}
-                <Card.Body>
-                  <Card.Title as="h3" className="h5">{school.credential}</Card.Title>
-                  {school.major ? <Card.Text className="mb-1">{school.major}</Card.Text> : null}
-                  <Card.Subtitle className="mb-2">{school.school}</Card.Subtitle>
-                  {school.location ? <Card.Text className="text-body-secondary mb-1">{school.location}</Card.Text> : null}
-                  <Card.Text className="text-body-secondary">{`${school.start} – ${school.end}`}</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
+                </span>
+              ) : null}
+              <div className={styles.details}>
+                <h3 className={styles.credential}>{school.credential}</h3>
+                {school.major ? <p className={styles.major}>{school.major}</p> : null}
+                <p className={styles.school}>{school.school}</p>
+                <p className={styles.meta}>
+                  {school.location ? <span>{school.location}</span> : null}
+                  <span>{`${school.start} – ${school.end}`}</span>
+                </p>
+              </div>
+            </li>
           ))}
-        </Row>
+        </ul>
       </Container>
     </section>
   )

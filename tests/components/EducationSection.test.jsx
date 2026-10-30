@@ -33,3 +33,11 @@ test('shows the location only when present', () => {
   render(<EducationSection schools={schools} />)
   expect(screen.getAllByText('Lake Worth, FL')).toHaveLength(2)
 })
+
+test('lists each entry as a list item headed by its credential', () => {
+  render(<EducationSection schools={schools} />)
+  const entries = screen.getAllByRole('listitem')
+  expect(entries).toHaveLength(3)
+  expect(within(entries[2]).getByRole('heading', { level: 3, name: 'High School Diploma' })).toBeInTheDocument()
+  expect(within(entries[0]).queryByRole('img')).not.toBeInTheDocument()
+})
