@@ -1,54 +1,68 @@
-import { Accordion, Container } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
+import styles from './ExperienceSection.module.css'
+
+function RoleHeading({ role }) {
+  const [primaryPosition, ...earlierPositions] = role.positions
+  return (
+    <>
+      <p className={styles.dates}>{`${role.start} – ${role.end}`}</p>
+      <h3 className={styles.company}>{role.company}</h3>
+      <p className={styles.position}>
+        <strong>{primaryPosition}</strong>
+        {role.location ? <span className={styles.location}> · {role.location}</span> : null}
+      </p>
+      {earlierPositions.length > 0 ? (
+        <p className={styles.location}>
+          <strong>Previously:</strong> {earlierPositions.join(', ')}
+        </p>
+      ) : null}
+    </>
+  )
+}
 
 export default function ExperienceSection({ roles }) {
-  const newestRoleId = roles.length > 0 ? roles[0].id : undefined
+  const [featuredRole, ...earlierRoles] = roles
   return (
-    <section id="experience" aria-labelledby="experience-heading" className="py-5">
+    <section id="experience" aria-labelledby="experience-heading" className="site-section">
       <Container>
-        <h2 id="experience-heading" className="text-center mb-4">Experience</h2>
-        <Accordion defaultActiveKey={[newestRoleId]} alwaysOpen>
-          {roles.map((role) => {
-            const [primaryPosition, ...earlierPositions] = role.positions
-            return (
-              <Accordion.Item eventKey={role.id} key={role.id}>
-                <Accordion.Header>
-                  <span className="d-flex flex-column flex-sm-row justify-content-between w-100 me-3 gap-1">
-                    <span>
-                      <strong>{primaryPosition}</strong>
-                      {' · '}
-                      <span>{role.company}</span>
-                      {role.location ? <span className="text-body-secondary"> · {role.location}</span> : null}
-                    </span>
-                    <span className="text-body-secondary text-nowrap">{`${role.start} – ${role.end}`}</span>
-                  </span>
-                </Accordion.Header>
-                <Accordion.Body>
-                  {earlierPositions.length > 0 ? (
-                    <p className="text-body-secondary">
-                      <strong>Previously:</strong> {earlierPositions.join(', ')}
-                    </p>
-                  ) : null}
+        <h2 id="experience-heading" className="section-title">Experience</h2>
+        {featuredRole ? (
+          <ol className={`${styles.timeline} reveal`}>
+            <li className={styles.entry}>
+              <div className={`${styles.featured} glass-card`}>
+                <RoleHeading role={featuredRole} />
+                {featuredRole.highlights.length > 0 ? (
+                  <ul className={styles.highlights}>
+                    {featuredRole.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
+                ) : null}
+                {featuredRole.notes ? <p className={styles.notes}>{featuredRole.notes}</p> : null}
+              </div>
+            </li>
+            {earlierRoles.map((role) => (
+              <li className={styles.entry} key={role.id}>
+                <div className={styles.compact}>
+                  <RoleHeading role={role} />
                   {role.highlights.length > 0 ? (
-                    <>
-                      <h4 className="h6 text-uppercase">Highlights</h4>
-                      <ul>
-                        {role.highlights.map((highlight) => (
-                          <li key={highlight}>{highlight}</li>
-                        ))}
-                      </ul>
-                    </>
+                    <ul className={styles.highlights}>
+                      {role.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
                   ) : null}
                   {role.notes ? (
-                    <>
-                      <h4 className="h6 text-uppercase">Notes</h4>
-                      <p className="mb-0">{role.notes}</p>
-                    </>
+                    <details className={styles.details}>
+                      <summary>Read more</summary>
+                      <p className={styles.notes}>{role.notes}</p>
+                    </details>
                   ) : null}
-                </Accordion.Body>
-              </Accordion.Item>
-            )
-          })}
-        </Accordion>
+                </div>
+              </li>
+            ))}
+          </ol>
+        ) : null}
       </Container>
     </section>
   )
