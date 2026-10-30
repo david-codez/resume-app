@@ -1,42 +1,61 @@
 import Image from 'next/image'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { FaDownload, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import SocialLinks from '../SocialLinks'
+import styles from './HeroSection.module.css'
 
 export default function HeroSection({ profile }) {
   return (
-    <header className="py-5">
+    <header className={styles.hero}>
       <Container>
-        <Row className="align-items-center g-4">
-          <Col md={4} className="text-center">
-            <Image
-              src={profile.headshot}
-              alt={`Portrait of ${profile.name}`}
-              width={240}
-              height={240}
-              className="rounded-circle"
-              priority
-            />
-          </Col>
-          <Col md={8}>
-            <h1 className="display-4 mb-1">{profile.name}</h1>
-            <p className="h3 text-body-secondary mb-2">{profile.title}</p>
-            <p className="mb-3">
-              <FaMapMarkerAlt aria-hidden="true" /> {profile.location}
+        <div className={styles.layout}>
+          <div className={styles.copy}>
+            <h1 className={`${styles.name} text-gradient`}>{profile.name}</h1>
+            <p className={styles.title}>{profile.title}</p>
+            <p className={styles.location}>
+              <FaMapMarkerAlt aria-hidden="true" />
+              <span>{profile.location}</span>
             </p>
-            <p className="lead">{profile.summary}</p>
-            {profile.about ? <p>{profile.about}</p> : null}
-            <div className="d-flex flex-wrap gap-2 mb-3">
-              <a href={profile.resumePdf} className="btn btn-primary">
+            <p className={styles.summary}>{profile.summary}</p>
+            {profile.about ? <p className={styles.about}>{profile.about}</p> : null}
+            <div className={styles.actions}>
+              <a href={profile.resumePdf} className="btn-accent">
                 <FaDownload aria-hidden="true" /> Download resume (PDF)
               </a>
-              <a href={`mailto:${profile.email}`} className="btn btn-outline-light">
+              <a href={`mailto:${profile.email}`} className="btn-ghost">
                 <FaEnvelope aria-hidden="true" /> Email me
               </a>
             </div>
-            <SocialLinks links={profile.social} />
-          </Col>
-        </Row>
+            <div className={styles.social}>
+              <SocialLinks links={profile.social} />
+            </div>
+          </div>
+          <div className={styles.portraitColumn}>
+            <div className={styles.portraitFrame}>
+              <div className={styles.portraitRing}>
+                <Image
+                  src={profile.headshot}
+                  alt={`Portrait of ${profile.name}`}
+                  width={600}
+                  height={600}
+                  sizes="(min-width: 768px) 320px, 80vw"
+                  className={styles.portrait}
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        {profile.stats ? (
+          <ul className={styles.stats}>
+            {profile.stats.map((stat) => (
+              <li key={stat.label} className={`${styles.stat} glass-card`}>
+                <p className={`${styles.statValue} text-gradient`}>{stat.value}</p>
+                <p className={styles.statLabel}>{stat.label}</p>
+              </li>
+            ))}
+          </ul>
+        ) : null}
       </Container>
     </header>
   )
