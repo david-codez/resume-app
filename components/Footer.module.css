@@ -1,0 +1,34 @@
+.footer {
+  position: relative;
+  padding-block: clamp(4rem, 9vw, 7rem) 2rem;
+  border-top: 1px solid var(--site-border);
+  background: radial-gradient(40rem 18rem at 50% 0%, rgba(124, 156, 255, 0.14), transparent 70%);
+  text-align: center;
+}
+
+.heading {
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+}
+
+.email {
+  max-width: 100%;
+  min-height: 2.75rem;
+  justify-content: center;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  margin-block: 2.5rem 3rem;
+  color: var(--site-text-muted);
+}
+
+.copyright {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--site-border);
+  color: var(--site-text-muted);
+}
