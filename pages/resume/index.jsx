@@ -8,6 +8,7 @@ import PortfolioSection from "../../components/resume/PortfolioSection";
 import SocialSection from "../../components/resume/SocialSection";
 import styles from '../../styles/resume.module.css';
 import jobHistory from '../../workHistory.json';
+import education from '../../content/education.json';
 
 const Resume = () => {
   return (
@@ -50,7 +51,7 @@ const Resume = () => {
         <section>
           <Container className="education-section">
             <h1 className={styles.sectionHeader}>Education</h1>
-            <EducationSection />
+            <EducationSection schools={education} />
           </Container>
         </section>
         <section className={styles.sectionConfig}>
