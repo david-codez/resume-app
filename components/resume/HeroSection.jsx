@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Col, Container, Row } from 'react-bootstrap'
 import { FaDownload, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
-import { iconFor } from '../iconMap'
+import SocialLinks from '../SocialLinks'
 
 export default function HeroSection({ profile }) {
   return (
@@ -34,24 +34,7 @@ export default function HeroSection({ profile }) {
                 <FaEnvelope aria-hidden="true" /> Email me
               </a>
             </div>
-            <ul className="list-inline mb-0">
-              {profile.social.map((link) => {
-                const Icon = iconFor(link.icon)
-                return (
-                  <li key={link.url} className="list-inline-item">
-                    <a
-                      href={link.url}
-                      aria-label={link.label}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-link"
-                    >
-                      <Icon size="1.75rem" aria-hidden="true" />
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
+            <SocialLinks links={profile.social} />
           </Col>
         </Row>
       </Container>

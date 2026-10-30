@@ -12,4 +12,7 @@ module.exports = {
   env: {
     NEXT_PUBLIC_SITE_URL: siteUrl,
   },
+  async redirects() {
+    return [{ source: '/resume', destination: '/', permanent: true }]
+  },
 }
