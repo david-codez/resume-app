@@ -1,0 +1,62 @@
+.categoryTitle {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--site-accent);
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.25rem, 1fr));
+  justify-content: start;
+  align-items: start;
+  gap: 0.5rem;
+}
+
+.skillCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.75rem 0.25rem;
+  border-radius: calc(var(--site-radius) / 2);
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.skillCell:hover {
+  background: var(--site-surface-hover);
+}
+
+.skillIcon {
+  flex-shrink: 0;
+  color: var(--site-text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.skillCell:hover .skillIcon {
+  color: var(--skill-brand-color, var(--site-accent));
+  transform: translateY(-2px);
+}
+
+.skillName {
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skillCell,
+  .skillIcon {
+    transition: none;
+  }
+
+  .skillCell:hover .skillIcon {
+    transform: none;
+  }
+}

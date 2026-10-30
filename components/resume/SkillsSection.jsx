@@ -1,32 +1,37 @@
-import { Container } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import { brandColorFor, iconFor } from '../iconMap'
+import styles from './SkillsSection.module.css'
 
 export default function SkillsSection({ skillGroups }) {
   return (
-    <section id="skills" aria-labelledby="skills-heading" className="py-5">
+    <section id="skills" aria-labelledby="skills-heading" className="site-section">
       <Container>
-        <h2 id="skills-heading" className="text-center mb-4">Skills</h2>
-        {skillGroups.map((group) => (
-          <div key={group.category} className="mb-4">
-            <h3 className="h6 text-uppercase text-body-secondary mb-3">{group.category}</h3>
-            <ul className="skill-grid list-unstyled mb-0">
-              {group.skills.map((skill) => {
-                const Icon = iconFor(skill.icon)
-                const brandColor = brandColorFor(skill.icon)
-                return (
-                  <li
-                    key={skill.name}
-                    className="skill-cell d-flex flex-column align-items-center gap-2 text-center small"
-                    style={brandColor ? { '--skill-brand-color': brandColor } : undefined}
-                  >
-                    <Icon aria-hidden="true" size="2rem" className="skill-icon" />
-                    <span>{skill.name}</span>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        ))}
+        <h2 id="skills-heading" className="section-title">Skills</h2>
+        <Row className="reveal g-4">
+          {skillGroups.map((group) => (
+            <Col key={group.category} lg={6}>
+              <div className="glass-card h-100 p-4">
+                <h3 className={styles.categoryTitle}>{group.category}</h3>
+                <ul className={`${styles.skillGrid} list-unstyled mb-0`}>
+                  {group.skills.map((skill) => {
+                    const Icon = iconFor(skill.icon)
+                    const brandColor = brandColorFor(skill.icon)
+                    return (
+                      <li
+                        key={skill.name}
+                        className={styles.skillCell}
+                        style={brandColor ? { '--skill-brand-color': brandColor } : undefined}
+                      >
+                        <Icon aria-hidden="true" size="1.75rem" className={styles.skillIcon} />
+                        <span className={styles.skillName}>{skill.name}</span>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            </Col>
+          ))}
+        </Row>
       </Container>
     </section>
   )

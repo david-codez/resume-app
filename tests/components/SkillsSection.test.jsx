@@ -28,7 +28,19 @@ test('renders a skill with an unknown icon key without throwing', () => {
 
 test('a branded skill cell carries its brand color and an unbranded one does not', () => {
   render(<SkillsSection skillGroups={skillGroups} />)
-  expect(screen.getByText('React').closest('li')).toHaveClass('skill-cell')
   expect(screen.getByText('React').closest('li')).toHaveStyle({ '--skill-brand-color': '#61DAFB' })
   expect(screen.getByText('SQL').closest('li').style.getPropertyValue('--skill-brand-color')).toBe('')
+})
+
+test('each category is a glass card titled by its heading and the section title is styled', () => {
+  render(<SkillsSection skillGroups={skillGroups} />)
+  expect(screen.getByRole('heading', { level: 2, name: 'Skills' })).toHaveClass('section-title')
+  expect(screen.getByRole('heading', { level: 3, name: 'Languages' }).closest('.glass-card')).not.toBeNull()
+  expect(screen.getByRole('heading', { level: 3, name: 'Frontend' }).closest('.glass-card')).not.toBeNull()
+})
+
+test('skills are listed as list items within their category', () => {
+  render(<SkillsSection skillGroups={skillGroups} />)
+  const languagesList = screen.getAllByRole('list')[0]
+  expect(within(languagesList).getAllByRole('listitem')).toHaveLength(2)
 })
