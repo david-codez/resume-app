@@ -26,13 +26,6 @@ describe('resume content', () => {
     if (profile.about !== undefined) {
       expect(profile.about.trim()).not.toBe('')
     }
-    if (profile.stats !== undefined) {
-      expect(profile.stats).toHaveLength(3)
-      for (const stat of profile.stats) {
-        expect(stat.value.trim()).not.toBe('')
-        expect(stat.label.trim()).not.toBe('')
-      }
-    }
     expect(profile.social.length).toBeGreaterThan(0)
     for (const link of profile.social) {
       expect(link).toEqual({
@@ -41,14 +34,6 @@ describe('resume content', () => {
         icon: expect.any(String),
       })
     }
-  })
-
-  test('profile defines the three hero stats', () => {
-    expect(profile.stats).toEqual([
-      { value: '14', label: expect.any(String) },
-      { value: '8', label: expect.any(String) },
-      { value: '~20', label: expect.any(String) },
-    ])
   })
 
   test('every skill group has a category and named skills with icon keys', () => {

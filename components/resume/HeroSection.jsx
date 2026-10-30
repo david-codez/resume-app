@@ -46,16 +46,6 @@ export default function HeroSection({ profile }) {
             </div>
           </div>
         </div>
-        {profile.stats ? (
-          <ul className={styles.stats}>
-            {profile.stats.map((stat) => (
-              <li key={stat.label} className={`${styles.stat} glass-card`}>
-                <p className={`${styles.statValue} text-gradient`}>{stat.value}</p>
-                <p className={styles.statLabel}>{stat.label}</p>
-              </li>
-            ))}
-          </ul>
-        ) : null}
       </Container>
     </header>
   )

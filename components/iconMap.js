@@ -3,10 +3,9 @@ import {
   FaAws, FaBrain, FaCode, FaDatabase, FaFilePdf, FaJava, FaLinkedin, FaPlug, FaRobot, FaVial,
 } from 'react-icons/fa'
 import {
-  SiApachemaven, SiBootstrap, SiCplusplus, SiDocker, SiExpress, SiGit, SiGithub, SiHibernate, SiHtml5, SiInstagram,
+  SiApachemaven, SiBootstrap, SiCplusplus, SiDocker, SiExpress, SiGit, SiGithub, SiHibernate, SiHtml5,
   SiJavascript, SiJest, SiJunit5, SiKubernetes, SiMongodb, SiMui, SiNextdotjs, SiNodedotjs,
   SiOpenapiinitiative, SiPostgresql, SiPython, SiReact, SiRedux, SiSass, SiSonatype, SiSpringboot, SiTypescript,
-  SiYoutube,
 } from 'react-icons/si'
 import { TbBrandCSharp, TbBrandCss3, TbSql } from 'react-icons/tb'
 
@@ -54,8 +53,6 @@ const ICONS = {
   mui: SiMui,
   github: SiGithub,
   linkedin: FaLinkedin,
-  youtube: SiYoutube,
-  instagram: SiInstagram,
 }
 
 const BRAND_COLORS = {

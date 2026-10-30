@@ -46,24 +46,3 @@ test('renders the optional about paragraph only when present', () => {
   rerender(<HeroSection profile={{ ...profile, about: 'A longer story.' }} />)
   expect(screen.getByText('A longer story.')).toBeInTheDocument()
 })
-
-test('renders each stat value with its label only when stats are present', () => {
-  const { rerender } = render(<HeroSection profile={profile} />)
-  expect(screen.queryByText('14')).not.toBeInTheDocument()
-  rerender(
-    <HeroSection
-      profile={{
-        ...profile,
-        stats: [
-          { value: '14', label: 'states rolled out' },
-          { value: '8', label: 'integrations built' },
-          { value: '~20', label: 'services modernized' },
-        ],
-      }}
-    />,
-  )
-  expect(screen.getByText('14')).toBeInTheDocument()
-  expect(screen.getByText('states rolled out')).toBeInTheDocument()
-  expect(screen.getByText('~20')).toBeInTheDocument()
-  expect(screen.getByText('services modernized')).toBeInTheDocument()
-})
