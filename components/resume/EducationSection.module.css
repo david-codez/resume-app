@@ -64,13 +64,9 @@
   font-size: 0.9rem;
 }
 
-.meta span + span::before {
+.meta span:first-child:not(:last-child)::after {
   content: '·';
-  margin-right: 0.75rem;
-}
-
-.meta span:only-child::before {
-  content: none;
+  margin-left: 0.75rem;
 }
 
 @media (min-width: 992px) {
