@@ -51,7 +51,7 @@
 .name {
   left: var(--margin);
   max-width: calc(var(--inset-x) - var(--margin) - 1.5rem);
-  font-size: min(var(--step-display), calc((32vw - 3.5rem) / 2.6));
+  font-size: min(var(--step-display), calc((50vw - var(--window-w) / 2 - var(--margin) - 1.5rem) / 2.6));
   line-height: 0.86;
   text-transform: uppercase;
   margin-bottom: -0.08em;
