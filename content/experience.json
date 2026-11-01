@@ -2,6 +2,7 @@
   {
     "id": "auto-data-direct",
     "company": "Auto Data Direct",
+    "logo": "/images/logos/auto-data-direct.png",
     "positions": ["Software Engineer"],
     "location": "Tallahassee, FL",
     "start": "October 2022",
@@ -21,6 +22,7 @@
   },
   {
     "id": "honeybelle",
+    "alwaysShown": true,
     "company": "Honeybelle at PGA National Resort",
     "logo": "/images/logos/honeybelle.png",
     "positions": ["Server"],
@@ -52,6 +54,7 @@
   },
   {
     "id": "duffys-bar-and-grill",
+    "alwaysShown": true,
     "company": "Duffy's Bar & Grill",
     "logo": "/images/logos/duffys-bar-and-grill.png",
     "positions": ["Server", "Bartender"],
@@ -84,6 +87,7 @@
   },
   {
     "id": "teleperformance",
+    "alwaysShown": true,
     "company": "Teleperformance",
     "logo": "/images/logos/teleperformance.svg",
     "positions": ["Xbox Customer Service Representative"],
@@ -94,6 +98,7 @@
   },
   {
     "id": "dunkin-donuts",
+    "alwaysShown": true,
     "company": "Dunkin’ Donuts",
     "logo": "/images/logos/dunkin-donuts.png",
     "positions": ["General Manager", "Shift Leader", "Team Member"],

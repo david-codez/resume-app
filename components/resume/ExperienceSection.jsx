@@ -1,16 +1,19 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import StateTileMap from './StateTileMap'
-import { stateName } from './stateTiles'
-import { statesMentioned } from './statesMentioned'
-import { formatTenure, monthsWorked } from './tenure'
+import { formatTenure, monthsWorked, yearRange } from './tenure'
 import styles from './ExperienceSection.module.css'
 
 function RoleHeading({ role }) {
   const [primaryPosition, ...earlierPositions] = role.positions
   return (
     <div className={styles.roleHeading}>
-      <h3 className={styles.company}>{role.company}</h3>
+      {role.logo ? (
+        <h3 className={styles.companyLogo}>
+          <Image src={role.logo} alt={role.company} width={832} height={162} sizes="(min-width: 900px) 28rem, 80vw" priority />
+        </h3>
+      ) : (
+        <h3 className={styles.company}>{role.company}</h3>
+      )}
       <p className={styles.position}>
         <strong>{primaryPosition}</strong>
         {role.location ? <span className={styles.location}> · {role.location}</span> : null}
@@ -20,7 +23,7 @@ function RoleHeading({ role }) {
           <strong>Previously:</strong> {earlierPositions.join(', ')}
         </p>
       ) : null}
-      <p className={styles.dates}>{`${role.start} – ${role.end}`}</p>
+      <p className={styles.dates}>{yearRange(role.start, role.end)}</p>
     </div>
   )
 }
@@ -49,18 +52,10 @@ function useActiveHighlight(itemRefs, count) {
 function FeaturedRole({ role }) {
   const itemRefs = useRef([])
   const [activeIndex, setActiveIndex] = useActiveHighlight(itemRefs, role.highlights.length)
-  const statesByHighlight = role.highlights.map(statesMentioned)
-  const workedStates = [...new Set(statesByHighlight.flat())]
-  const activeStates = activeIndex === null ? [] : statesByHighlight[activeIndex]
-  const caption = activeStates.length > 0 ? activeStates.map(stateName).join(', ') : null
   return (
     <div className={styles.featured}>
       <div className={styles.pin}>
         <RoleHeading role={role} />
-        <div className={styles.mapBlock}>
-          <StateTileMap workedStates={workedStates} activeStates={activeStates} />
-          <p className={styles.mapCaption} aria-live="polite">{caption ?? ' '}</p>
-        </div>
       </div>
       {role.highlights.length > 0 ? (
         <ul className={styles.highlights}>
@@ -96,11 +91,11 @@ function CompanyMark({ role }) {
   return <span className={`${styles.mark} ${styles.markInitials}`} aria-hidden="true">{initials}</span>
 }
 
-function EarlierRole({ role }) {
+function EarlierRole({ role, isHidden }) {
   const [primaryPosition, ...earlierPositions] = role.positions
   const tenure = formatTenure(monthsWorked(role.start, role.end))
   return (
-    <li className={styles.row}>
+    <li className={styles.row} hidden={isHidden}>
       <CompanyMark role={role} />
       <div className={styles.rowBody}>
         <h3 className={styles.rowCompany}>{role.company}</h3>
@@ -118,16 +113,42 @@ function EarlierRole({ role }) {
         ) : null}
         {role.notes ? (
           <details className={styles.story}>
-            <summary>The longer story</summary>
+            <summary>Details</summary>
             <p>{role.notes}</p>
           </details>
         ) : null}
       </div>
       <p className={styles.rowDates}>
-        <span>{`${role.start} – ${role.end}`}</span>
+        <span>{yearRange(role.start, role.end)}</span>
         {tenure ? <span className={styles.tenure}>{tenure}</span> : null}
       </p>
     </li>
+  )
+}
+
+function EarlierRoles({ roles }) {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const shownByDefault = roles.filter((role) => role.alwaysShown)
+  const canCollapse = shownByDefault.length > 0 && shownByDefault.length < roles.length
+  return (
+    <>
+      <ul id="earlier-experience-list" className={styles.lineUp} aria-labelledby="earlier-experience-label">
+        {roles.map((role) => (
+          <EarlierRole key={role.id} role={role} isHidden={canCollapse && !isExpanded && !role.alwaysShown} />
+        ))}
+      </ul>
+      {canCollapse ? (
+        <button
+          type="button"
+          className={styles.toggleRoles}
+          aria-controls="earlier-experience-list"
+          aria-expanded={isExpanded}
+          onClick={() => setIsExpanded((wasExpanded) => !wasExpanded)}
+        >
+          {isExpanded ? 'Show fewer roles' : `Show all ${roles.length} roles`}
+        </button>
+      ) : null}
+    </>
   )
 }
 
@@ -143,9 +164,7 @@ export default function ExperienceSection({ roles }) {
         <div className={styles.earlier}>
           <div className="frame" data-reveal>
             <p id="earlier-experience-label" className={styles.leadIn}>Earlier experience</p>
-            <ul className={styles.lineUp} aria-labelledby="earlier-experience-label">
-              {earlierRoles.map((role) => <EarlierRole key={role.id} role={role} />)}
-            </ul>
+            <EarlierRoles roles={earlierRoles} />
           </div>
         </div>
       ) : null}

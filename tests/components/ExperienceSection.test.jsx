@@ -28,11 +28,12 @@ test('lists earlier positions only for roles that had more than one', () => {
   expect(screen.getByText(/Junior Engineer/)).toBeInTheDocument()
 })
 
-test('shows an en-dash date range for each role', () => {
+test('shows each role as a year range without months', () => {
   render(<ExperienceSection roles={roles} />)
-  expect(screen.getByText('October 2022 – Present')).toBeInTheDocument()
-  expect(screen.getByText('May 2015 – August 2017')).toBeInTheDocument()
-  expect(screen.getByText('June 2018 – July 2020')).toBeInTheDocument()
+  expect(screen.getByText('2022 – Present')).toBeInTheDocument()
+  expect(screen.getByText('2015 – 2017')).toBeInTheDocument()
+  expect(screen.getByText('2018 – 2020')).toBeInTheDocument()
+  expect(screen.queryByText(/October|August|July/)).not.toBeInTheDocument()
 })
 
 test('shows every highlight of the featured role as a list item without interaction', () => {
@@ -46,7 +47,7 @@ test('shows every highlight of the featured role as a list item without interact
 
 test('exposes notes through a closed details element', () => {
   render(<ExperienceSection roles={roles} />)
-  const summary = screen.getByText('The longer story')
+  const summary = screen.getByText('Details')
   expect(summary.tagName).toBe('SUMMARY')
   const details = summary.closest('details')
   expect(details).not.toHaveAttribute('open')
@@ -55,7 +56,7 @@ test('exposes notes through a closed details element', () => {
 
 test('renders no details for roles without notes', () => {
   render(<ExperienceSection roles={[roles[0], roles[2]]} />)
-  expect(screen.queryByText('The longer story')).not.toBeInTheDocument()
+  expect(screen.queryByText('Details')).not.toBeInTheDocument()
   expect(document.querySelector('details')).toBeNull()
 })
 
