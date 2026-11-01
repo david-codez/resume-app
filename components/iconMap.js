@@ -3,7 +3,7 @@ import {
   FaAws, FaBrain, FaCode, FaDatabase, FaFilePdf, FaJava, FaLinkedin, FaPlug, FaRobot, FaVial,
 } from 'react-icons/fa'
 import {
-  SiApachemaven, SiBootstrap, SiCockroachlabs, SiCplusplus, SiDocker, SiExpress, SiGit, SiGithub, SiHibernate, SiHtml5,
+  SiApachemaven, SiBootstrap, SiCockroachlabs, SiCplusplus, SiDocker, SiExpress, SiGit, SiGithub, SiGitlab, SiHibernate, SiHtml5,
   SiJavascript, SiJest, SiJunit5, SiKubernetes, SiMongodb, SiMui, SiNextdotjs, SiNodedotjs,
   SiOpenapiinitiative, SiPostgresql, SiPrisma, SiPython, SiReact, SiRedux, SiSass, SiSonatype, SiSpringboot,
   SiTailwindcss, SiTypescript, SiVite, SiVitest,
@@ -58,6 +58,7 @@ const ICONS = {
   vite: SiVite,
   vitest: SiVitest,
   github: SiGithub,
+  gitlab: SiGitlab,
   linkedin: FaLinkedin,
 }
 
