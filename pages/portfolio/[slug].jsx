@@ -17,6 +17,20 @@ export async function getStaticProps({ params }) {
   return { props: { project } }
 }
 
+function DetailList({ heading, items }) {
+  if (!items?.length) {
+    return null
+  }
+  return (
+    <section className={styles.detail} data-reveal>
+      <h2 className={styles.detailHeading}>{heading}</h2>
+      <ul className={styles.detailList}>
+        {items.map((item) => <li key={item}>{item}</li>)}
+      </ul>
+    </section>
+  )
+}
+
 export default function ProjectPage({ project }) {
   return (
     <>
@@ -47,9 +61,16 @@ export default function ProjectPage({ project }) {
           </div>
           <div className={styles.panel} data-reveal>
             <p className={styles.summary}>{project.summary}</p>
-            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="button">
-              Open live demo
-            </a>
+            <div className={styles.actions}>
+              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="button">
+                Open live demo
+              </a>
+              {project.sourceUrl ? (
+                <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+                  View source
+                </a>
+              ) : null}
+            </div>
             <h2 className={styles.stackHeading}>Built with</h2>
             <ul className={styles.stack}>
               {project.stack.map((tool) => {
@@ -63,6 +84,10 @@ export default function ProjectPage({ project }) {
               })}
             </ul>
           </div>
+        </div>
+        <div className={styles.details}>
+          <DetailList heading="What it does" items={project.features} />
+          <DetailList heading="How it's built" items={project.buildNotes} />
         </div>
       </main>
     </>

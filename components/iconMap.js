@@ -3,10 +3,10 @@ import {
   FaAws, FaBrain, FaCode, FaDatabase, FaFilePdf, FaJava, FaLinkedin, FaPlug, FaRobot, FaVial,
 } from 'react-icons/fa'
 import {
-  SiApachemaven, SiBootstrap, SiCplusplus, SiDocker, SiExpress, SiGit, SiGithub, SiHibernate, SiHtml5,
+  SiApachemaven, SiBootstrap, SiCockroachlabs, SiCplusplus, SiDocker, SiExpress, SiGit, SiGithub, SiHibernate, SiHtml5,
   SiJavascript, SiJest, SiJunit5, SiKubernetes, SiMongodb, SiMui, SiNextdotjs, SiNodedotjs,
   SiOpenapiinitiative, SiPostgresql, SiPrisma, SiPython, SiReact, SiRedux, SiSass, SiSonatype, SiSpringboot,
-  SiTailwindcss, SiTypescript,
+  SiTailwindcss, SiTypescript, SiVite, SiVitest,
 } from 'react-icons/si'
 import { TbBrandCSharp, TbBrandCss3, TbSql } from 'react-icons/tb'
 
@@ -32,6 +32,7 @@ const ICONS = {
   redux: SiRedux,
   responsive: TbBrandCss3,
   postgresql: SiPostgresql,
+  cockroachdb: SiCockroachlabs,
   sqlserver: DiMsqlServer,
   maven: SiApachemaven,
   git: SiGit,
@@ -54,6 +55,8 @@ const ICONS = {
   mui: SiMui,
   tailwind: SiTailwindcss,
   prisma: SiPrisma,
+  vite: SiVite,
+  vitest: SiVitest,
   github: SiGithub,
   linkedin: FaLinkedin,
 }
@@ -71,6 +74,9 @@ const BRAND_COLORS = {
   kubernetes: '#326CE5',
   git: '#F03C2E',
   postgresql: '#4169E1',
+  cockroachdb: '#6933FF',
+  vite: '#646CFF',
+  vitest: '#6E9F18',
   mongodb: '#47A248',
   junit: '#25A162',
   jest: '#C21325',

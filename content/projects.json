@@ -2,31 +2,57 @@
   {
     "slug": "lol-app",
     "name": "LoL App",
-    "summary": "A League of Legends reference with searchable champions and items, a drag-and-drop build tester that recalculates stats and ability damage, and an item guessing game.",
+    "summary": "A League of Legends reference with searchable champions and items, a drag-and-drop build tester that recalculates stats and ability damage, and an item guessing game. The live app reads and writes its data in CockroachDB through Prisma.",
     "demoUrl": "https://lol-app-pi.vercel.app/",
+    "sourceUrl": "https://gitlab.com/davidcodez/lol-app",
     "image": "/images/lol-app-screenshot.png",
+    "features": [
+      "Champion browser filtered by name, resource type, class, region, species and lane, with detail pages for stats, abilities, tips and lore.",
+      "Item browser filtered by type and stat, with gold cost, parsed stats, unique passives and a build-path tree for each item.",
+      "Build Tester: pick a champion and level, drag items into the build slots, and watch stats and ability damage recalculate.",
+      "Item Game: guess a hidden item as its stats and masked passives are revealed one clue at a time, with a win tally saved in the browser."
+    ],
+    "buildNotes": [
+      "Next.js App Router with REST API routes for champions, items, filters and the item game.",
+      "Prisma over CockroachDB, split into champions, items, lore and public schemas; the schema also runs on PostgreSQL.",
+      "Ability tooltips are resolved from raw game data, and item passives such as Rabadon's, Sterak's and Riftmaker are modelled so the numbers match the game.",
+      "Unit tests in Vitest and end-to-end tests of the item game and build paths in Playwright."
+    ],
     "stack": [
       { "name": "Next.js", "icon": "nextjs" },
       { "name": "React", "icon": "react" },
       { "name": "TypeScript", "icon": "typescript" },
       { "name": "Tailwind CSS", "icon": "tailwind" },
       { "name": "Prisma", "icon": "prisma" },
-      { "name": "PostgreSQL", "icon": "postgresql" }
+      { "name": "PostgreSQL", "icon": "postgresql" },
+      { "name": "CockroachDB", "icon": "cockroachdb" }
     ]
   },
   {
     "slug": "to-do-list",
     "name": "To Do List",
-    "summary": "A task tracker with separate active and completed lists, built in React and styled with Bootstrap and Sass.",
+    "summary": "A keyboard-friendly task list built with React 19 and TypeScript. Tasks are saved in the browser, mistakes can be undone, and it follows your system's light or dark theme.",
     "demoUrl": "https://to-do-list-app-mu.vercel.app/",
+    "sourceUrl": "https://github.com/david-codez/ToDo-List-App",
     "image": "/images/to-do-list-screenshot.png",
+    "features": [
+      "Add, edit, complete and delete tasks, then filter by All, Active or Done with live counts and a progress bar.",
+      "Undo after deleting a task, clearing completed tasks or clearing the whole list.",
+      "Fully keyboard operable: Enter edits, Space toggles, Delete removes and Escape cancels.",
+      "Light, dark or match-system theme, with no flash on load."
+    ],
+    "buildNotes": [
+      "One pure reducer owns every task change, so the core behaviour is unit-tested without React or the browser.",
+      "Undo restores tasks by their original position, so a task added between the delete and the undo is never lost.",
+      "Storage goes through a wrapper that never throws; saved data is versioned and validated when it loads.",
+      "No UI framework: one stylesheet built on custom properties, so the dark theme is a token swap."
+    ],
     "stack": [
-      { "name": "HTML5", "icon": "html" },
-      { "name": "CSS", "icon": "css" },
-      { "name": "Bootstrap", "icon": "bootstrap" },
-      { "name": "JavaScript", "icon": "javascript" },
       { "name": "React", "icon": "react" },
-      { "name": "Sass", "icon": "sass" }
+      { "name": "TypeScript", "icon": "typescript" },
+      { "name": "Vite", "icon": "vite" },
+      { "name": "Vitest", "icon": "vitest" },
+      { "name": "CSS", "icon": "css" }
     ]
   },
   {
@@ -34,7 +60,19 @@
     "name": "Pokedex",
     "summary": "A Pokédex browser that looks up a Pokémon and shows its artwork and stats, built in React with Bootstrap and Sass.",
     "demoUrl": "https://pokedex-mu-nine-85.vercel.app",
+    "sourceUrl": "https://github.com/david-codez/pokedex",
     "image": "/images/pokedex-screenshot.png",
+    "features": [
+      "Look up any Pokémon from #1 to #905 by number, or step through them with the previous and next arrows.",
+      "Each entry shows the official artwork, its types, its category and the English Pokédex description.",
+      "Height and weight in both imperial and metric, and base stats drawn as bars against the maximum of 255.",
+      "Clear error messages for an invalid number, the ends of the list, or a failed request."
+    ],
+    "buildNotes": [
+      "Data comes live from PokeAPI; the Pokémon and its species record are fetched in parallel.",
+      "Description text is cleaned of the game's control characters before it is shown.",
+      "Unit conversions and text cleanup live in plain functions with their own tests."
+    ],
     "stack": [
       { "name": "HTML5", "icon": "html" },
       { "name": "CSS", "icon": "css" },
@@ -49,7 +87,19 @@
     "name": "Hangman",
     "summary": "A hangman word game with an on-screen keyboard and a drawn gallows, built with React and Next.js.",
     "demoUrl": "https://hangman-woad.vercel.app",
+    "sourceUrl": "https://github.com/david-codez/hangman",
     "image": "/images/hangman-screenshot.png",
+    "features": [
+      "Eight word categories, from Animals and Countries to Musical Instruments; Any picks a category first so the large General list doesn't crowd out the rest.",
+      "Multi-word answers like Costa Rica, with spaces, hyphens and apostrophes shown from the start.",
+      "Guess with the on-screen keys or your keyboard; correct letters turn green, wrong ones red, and missed letters are revealed when you lose.",
+      "A scoreboard of wins, losses and best streak saved in the browser, with a Reset button."
+    ],
+    "buildNotes": [
+      "Game rules and stats live in plain modules apart from the UI, tested with Node's built-in test runner.",
+      "Words are served by a Next.js API route from a categorised word bank.",
+      "Light and dark mode follow the system setting."
+    ],
     "stack": [
       { "name": "HTML5", "icon": "html" },
       { "name": "CSS", "icon": "css" },
