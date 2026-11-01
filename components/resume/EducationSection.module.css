@@ -14,26 +14,28 @@
 
 .entry {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-  gap: 1.5rem;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  column-gap: 1.5rem;
   align-items: start;
 }
 
-.photo {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+.mark {
+  position: relative;
+  width: 10rem;
+  aspect-ratio: 2 / 1;
+  background: var(--surface);
 }
 
-.caption {
+.markLogo {
+  padding: 0.6rem;
+  object-fit: contain;
+}
+
+.details {
+  grid-column: -2;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-}
-
-.caption:only-child {
-  grid-column: 1 / -1;
 }
 
 .credential {
@@ -58,11 +60,22 @@
 }
 
 @media (max-width: 900px) {
-  .list {
-    grid-template-columns: 1fr;
+  .entry {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    column-gap: 1rem;
   }
 
-  .entry {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  .mark {
+    width: 6rem;
+  }
+
+  .markLogo {
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .list {
+    grid-template-columns: 1fr;
   }
 }

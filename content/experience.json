@@ -22,6 +22,7 @@
   {
     "id": "honeybelle",
     "company": "Honeybelle at PGA National Resort",
+    "logo": "/images/logos/honeybelle.png",
     "positions": ["Server"],
     "location": "",
     "start": "January 2022",
@@ -31,6 +32,7 @@
   {
     "id": "tommy-bahama",
     "company": "Tommy Bahama",
+    "logo": "/images/logos/tommy-bahama.svg",
     "positions": ["Server", "Bartender"],
     "location": "",
     "start": "January 2021",
@@ -40,6 +42,7 @@
   {
     "id": "westwood-interior-cleaning",
     "company": "Westwood Interior Cleaning",
+    "logo": "/images/logos/westwood-interior-cleaning.png",
     "positions": ["Exterior Maintenance Technician"],
     "location": "",
     "start": "June 2018",
@@ -50,6 +53,7 @@
   {
     "id": "duffys-bar-and-grill",
     "company": "Duffy's Bar & Grill",
+    "logo": "/images/logos/duffys-bar-and-grill.png",
     "positions": ["Server", "Bartender"],
     "location": "",
     "start": "August 2017",
@@ -60,6 +64,7 @@
   {
     "id": "buffalo-wild-wings",
     "company": "Buffalo Wild Wings",
+    "logo": "/images/logos/buffalo-wild-wings.svg",
     "positions": ["Server"],
     "location": "",
     "start": "March 2017",
@@ -69,6 +74,7 @@
   {
     "id": "chilis-bar-and-grill",
     "company": "Chili's Bar & Grill",
+    "logo": "/images/logos/chilis-bar-and-grill.svg",
     "positions": ["Bartender", "Server", "Expeditor", "Line Cook"],
     "location": "",
     "start": "May 2015",
@@ -79,6 +85,7 @@
   {
     "id": "teleperformance",
     "company": "Teleperformance",
+    "logo": "/images/logos/teleperformance.svg",
     "positions": ["Xbox Customer Service Representative"],
     "location": "",
     "start": "November 2014",
@@ -88,6 +95,7 @@
   {
     "id": "dunkin-donuts",
     "company": "Dunkin’ Donuts",
+    "logo": "/images/logos/dunkin-donuts.png",
     "positions": ["General Manager", "Shift Leader", "Team Member"],
     "location": "",
     "start": "September 2012",
@@ -100,6 +108,7 @@
   {
     "id": "grandes-bella-cucina",
     "company": "Grande's Bella Cucina",
+    "logo": "/images/logos/grandes-bella-cucina.png",
     "positions": ["Expeditor", "Food Runner", "Busser"],
     "location": "",
     "start": "November 2008",

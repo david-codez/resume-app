@@ -3,8 +3,8 @@ import EducationSection from '../../components/resume/EducationSection'
 
 const schools = [
   { id: 'pbsc-bas', school: 'Palm Beach State College', location: 'Lake Worth, FL', credential: 'Bachelor of Applied Science', major: 'Information Management', start: 'January 2021', end: 'December 2023' },
-  { id: 'pbsc-aa', school: 'Palm Beach State College', location: 'Lake Worth, FL', credential: 'Associate of Arts', start: 'January 2020', end: 'December 2021', image: '/images/aa_grad_photo.jpg' },
-  { id: 'dwyer', school: 'Dwyer High School', location: '', credential: 'High School Diploma', start: 'August 2005', end: 'May 2009', image: '/images/hs_grad_photo.jpg' },
+  { id: 'pbsc-aa', school: 'Palm Beach State College', location: 'Lake Worth, FL', credential: 'Associate of Arts', start: 'January 2020', end: 'December 2021' },
+  { id: 'dwyer', school: 'Dwyer High School', location: '', credential: 'High School Diploma', start: 'August 2005', end: 'May 2009', logo: '/images/logos/dwyer-high-school.png' },
 ]
 
 test('renders a region named Education with credential, school and date range for each entry', () => {
@@ -22,11 +22,12 @@ test('renders the major only when present', () => {
   expect(screen.getAllByText('Information Management')).toHaveLength(1)
 })
 
-test('renders an image only for schools that have one', () => {
-  render(<EducationSection schools={schools} />)
-  expect(screen.getAllByRole('img')).toHaveLength(2)
-  expect(screen.getByRole('img', { name: 'Dwyer High School graduation photo' })).toBeInTheDocument()
-  expect(screen.getByRole('img', { name: 'Palm Beach State College graduation photo' })).toBeInTheDocument()
+test('renders a decorative logo only for schools that have one', () => {
+  const { container } = render(<EducationSection schools={schools} />)
+  const logos = container.querySelectorAll('img')
+  expect(logos).toHaveLength(1)
+  expect(logos[0]).toHaveAttribute('alt', '')
+  expect(screen.queryByRole('img')).not.toBeInTheDocument()
 })
 
 test('shows the location only when present', () => {
@@ -39,5 +40,4 @@ test('lists each entry as a list item headed by its credential', () => {
   const entries = screen.getAllByRole('listitem')
   expect(entries).toHaveLength(3)
   expect(within(entries[2]).getByRole('heading', { level: 3, name: 'High School Diploma' })).toBeInTheDocument()
-  expect(within(entries[0]).queryByRole('img')).not.toBeInTheDocument()
 })

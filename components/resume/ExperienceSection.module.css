@@ -110,53 +110,87 @@
 }
 
 .lineUp {
-  --row-size: var(--step-lead);
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: clamp(2.5rem, 4vw, 3.5rem);
 }
 
 .row {
   display: grid;
-  grid-template-columns: 33% 1fr auto;
-  column-gap: 1.5rem;
-  align-items: baseline;
-  font-size: var(--row-size);
-  line-height: 1.25;
+  grid-template-columns: 10rem minmax(0, 1fr) auto;
+  column-gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 10rem;
+  aspect-ratio: 2 / 1;
+  background: color-mix(in srgb, var(--field-ink) 9%, transparent);
+}
+
+.markLogo {
+  padding: 0.75rem 0.6rem;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.markInitials {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--field-ink);
+}
+
+.rowBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 62ch;
+  color: var(--field-muted);
 }
 
 .rowCompany {
   font-family: var(--font-text);
-  font-size: inherit;
-  font-weight: 400;
+  font-size: var(--step-lead);
+  font-weight: 500;
   letter-spacing: 0;
-  line-height: inherit;
+  line-height: 1.25;
+  color: var(--field-ink);
 }
 
-.rowPosition .location,
-.rowMore {
+.rowPosition strong {
+  font-weight: 500;
+  color: var(--field-ink);
+}
+
+.rowPosition .location {
   color: var(--field-muted);
 }
 
-.rowDates {
-  font-variant-numeric: tabular-nums;
-  text-align: right;
+.rowHighlights {
+  margin-top: 0.4rem;
+  color: var(--field-ink);
 }
 
-.rowMore {
-  grid-column: 2 / -1;
+.rowDates {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 0.4rem;
-  font-size: var(--step-body);
-  line-height: 1.5;
-  max-width: 62ch;
+  align-items: flex-end;
+  gap: 0.2rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
 }
 
-.rowMore strong {
-  font-weight: 500;
-  color: var(--field-ink);
+.tenure {
+  color: var(--field-muted);
+  font-size: var(--step-small);
 }
 
 .story summary {
@@ -240,23 +274,38 @@
   }
 
   .row {
-    grid-template-columns: 1fr auto;
-    row-gap: 0.2rem;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    row-gap: 0.5rem;
   }
 
-  .rowCompany {
-    grid-column: 1 / -1;
-    font-size: var(--step-lead);
+  .mark {
+    width: 6rem;
+    grid-row: span 2;
   }
 
-  .rowPosition,
+  .markLogo {
+    padding: 0.45rem 0.35rem;
+  }
+
+  .markInitials {
+    font-size: 1.5rem;
+  }
+
   .rowDates {
+    grid-column: 2;
+    grid-row: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 0.75rem;
+    align-items: baseline;
+    text-align: left;
+    white-space: normal;
     font-size: var(--step-small);
     color: var(--field-muted);
   }
 
-  .rowMore {
-    grid-column: 1 / -1;
+  .rowBody {
+    grid-column: 2;
   }
 }
 

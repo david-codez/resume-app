@@ -1,7 +1,9 @@
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import StateTileMap from './StateTileMap'
 import { stateName } from './stateTiles'
 import { statesMentioned } from './statesMentioned'
+import { formatTenure, monthsWorked } from './tenure'
 import styles from './ExperienceSection.module.css'
 
 function RoleHeading({ role }) {
@@ -82,34 +84,49 @@ function FeaturedRole({ role }) {
   )
 }
 
+function CompanyMark({ role }) {
+  if (role.logo) {
+    return (
+      <span className={styles.mark}>
+        <Image src={role.logo} alt="" fill sizes="10rem" className={styles.markLogo} />
+      </span>
+    )
+  }
+  const initials = role.company.split(/\s+/).slice(0, 2).map((word) => word[0]).join('')
+  return <span className={`${styles.mark} ${styles.markInitials}`} aria-hidden="true">{initials}</span>
+}
+
 function EarlierRole({ role }) {
   const [primaryPosition, ...earlierPositions] = role.positions
+  const tenure = formatTenure(monthsWorked(role.start, role.end))
   return (
     <li className={styles.row}>
-      <h3 className={styles.rowCompany}>{role.company}</h3>
-      <p className={styles.rowPosition}>
-        <span>{primaryPosition}</span>
-        {role.location ? <span className={styles.location}> · {role.location}</span> : null}
-      </p>
-      <p className={styles.rowDates}>{`${role.start} – ${role.end}`}</p>
-      {earlierPositions.length > 0 || role.highlights.length > 0 || role.notes ? (
-        <div className={styles.rowMore}>
+      <CompanyMark role={role} />
+      <div className={styles.rowBody}>
+        <h3 className={styles.rowCompany}>{role.company}</h3>
+        <p className={styles.rowPosition}>
+          <strong>{primaryPosition}</strong>
           {earlierPositions.length > 0 ? (
-            <p><strong>Previously:</strong> {earlierPositions.join(', ')}</p>
+            <span className={styles.rowPrevious}> · previously {earlierPositions.join(', ')}</span>
           ) : null}
-          {role.highlights.length > 0 ? (
-            <ul>
-              {role.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
-            </ul>
-          ) : null}
-          {role.notes ? (
-            <details className={styles.story}>
-              <summary>The longer story</summary>
-              <p>{role.notes}</p>
-            </details>
-          ) : null}
-        </div>
-      ) : null}
+          {role.location ? <span className={styles.location}> · {role.location}</span> : null}
+        </p>
+        {role.highlights.length > 0 ? (
+          <ul className={styles.rowHighlights}>
+            {role.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+          </ul>
+        ) : null}
+        {role.notes ? (
+          <details className={styles.story}>
+            <summary>The longer story</summary>
+            <p>{role.notes}</p>
+          </details>
+        ) : null}
+      </div>
+      <p className={styles.rowDates}>
+        <span>{`${role.start} – ${role.end}`}</span>
+        {tenure ? <span className={styles.tenure}>{tenure}</span> : null}
+      </p>
     </li>
   )
 }
