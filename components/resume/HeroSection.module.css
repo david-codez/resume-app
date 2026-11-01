@@ -105,6 +105,10 @@
 .intro {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100svh;
   margin-top: -100svh;
   background: var(--bg);
   padding: var(--section-gap) var(--margin) 0;

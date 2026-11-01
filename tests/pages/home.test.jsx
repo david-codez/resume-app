@@ -10,7 +10,7 @@ test('renders one h1 and a named region for every resume section plus a footer',
   expect(screen.getByRole('contentinfo')).toBeInTheDocument()
 })
 
-test('places Skills after Education at the bottom of the page', () => {
+test('places Skills directly after Education', () => {
   render(<Home />)
   const education = screen.getByRole('region', { name: 'Education' })
   const skills = screen.getByRole('region', { name: 'Skills' })
@@ -21,7 +21,7 @@ test('section navigation lists sections in page order', () => {
   render(<Home />)
   const nav = screen.getByRole('navigation', { name: 'Section navigation' })
   const labels = within(nav).getAllByRole('link').map((link) => link.textContent).slice(1)
-  expect(labels).toEqual(['Experience', 'Projects', 'Education', 'Skills', 'Contact'])
+  expect(labels).toEqual(['Experience', 'Education', 'Skills', 'Projects', 'About', 'Contact'])
 })
 
 test('section navigation links to every section', () => {

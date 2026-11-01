@@ -1,12 +1,13 @@
 .nav {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto;
   z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.25rem var(--margin);
+  padding: 1rem var(--margin);
+  background: var(--bg);
   font-size: var(--step-small);
 }
 

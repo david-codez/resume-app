@@ -2,11 +2,13 @@ import Footer from '../components/Footer'
 import SectionNav from '../components/SectionNav'
 import SiteHead from '../components/SiteHead'
 import { buildPersonJsonLd } from '../components/personJsonLd'
+import AboutSection from '../components/resume/AboutSection'
 import EducationSection from '../components/resume/EducationSection'
 import ExperienceSection from '../components/resume/ExperienceSection'
 import HeroSection from '../components/resume/HeroSection'
 import ProjectsSection from '../components/resume/ProjectsSection'
 import SkillsSection from '../components/resume/SkillsSection'
+import about from '../content/about.json'
 import education from '../content/education.json'
 import experience from '../content/experience.json'
 import profile from '../content/profile.json'
@@ -28,9 +30,10 @@ export default function Home() {
       <main id="top">
         <HeroSection profile={profile} />
         <ExperienceSection roles={experience} />
-        <ProjectsSection projects={projects} />
         <EducationSection schools={education} />
         <SkillsSection skillGroups={skills} />
+        <ProjectsSection projects={projects} />
+        <AboutSection moments={about} />
       </main>
       <Footer profile={profile} />
     </>
