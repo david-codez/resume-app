@@ -16,9 +16,11 @@
 .pin {
   grid-column: 1 / span 5;
   position: sticky;
-  top: 10vh;
+  top: 4.5rem;
+  height: calc(100svh - 4.5rem);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -86,6 +88,19 @@
   background: var(--surface);
 }
 
+.highlights li:nth-child(even) {
+  background: var(--field);
+  color: var(--field-ink);
+}
+
+.highlights li:nth-child(even).activeHighlight {
+  background: #043d45;
+}
+
+.highlights li:nth-child(even):focus-visible {
+  outline-color: var(--field-ink);
+}
+
 .notes {
   grid-column: 7 / span 6;
   max-width: 60ch;
@@ -107,6 +122,15 @@
   text-align: center;
   text-transform: uppercase;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.intro {
+  max-width: 68rem;
+  margin: calc(clamp(2.5rem, 5vw, 4rem) * -0.5) auto clamp(3rem, 6vw, 4.5rem);
+  color: var(--field-ink);
+  font-size: var(--step-body);
+  line-height: 1.6;
+  text-align: center;
 }
 
 .lineUp {
@@ -335,4 +359,10 @@
 
 .row[hidden] {
   display: none;
+}
+
+@media (max-width: 600px) {
+  .intro {
+    text-align: left;
+  }
 }

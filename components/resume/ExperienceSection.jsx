@@ -152,7 +152,7 @@ function EarlierRoles({ roles }) {
   )
 }
 
-export default function ExperienceSection({ roles }) {
+export default function ExperienceSection({ roles, intro }) {
   const [featuredRole, ...earlierRoles] = roles
   return (
     <section id="experience" aria-labelledby="experience-heading" className={styles.section}>
@@ -164,6 +164,7 @@ export default function ExperienceSection({ roles }) {
         <div className={styles.earlier}>
           <div className="frame" data-reveal>
             <p id="earlier-experience-label" className={styles.leadIn}>Earlier experience</p>
+            {intro ? <p className={styles.intro}>{intro}</p> : null}
             <EarlierRoles roles={earlierRoles} />
           </div>
         </div>
