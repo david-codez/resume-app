@@ -102,6 +102,7 @@ footer[id] {
 
 .section-heading {
   font-size: var(--step-head);
+  text-align: center;
   text-transform: uppercase;
 }
 

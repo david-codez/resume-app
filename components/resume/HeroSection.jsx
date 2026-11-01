@@ -71,8 +71,8 @@ export default function HeroSection({ profile }) {
           <Image
             src={profile.headshot}
             alt={`Portrait of ${profile.name}`}
-            width={600}
-            height={600}
+            width={900}
+            height={1200}
             sizes="(min-width: 900px) 30vw, 60vw"
             className={styles.portrait}
           />
