@@ -1,0 +1,67 @@
+.map {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.tile rect {
+  transition: fill 300ms ease;
+}
+
+.tile text {
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: fill 300ms ease;
+}
+
+.rest rect {
+  fill: var(--surface);
+}
+
+.rest text {
+  fill: var(--muted);
+}
+
+.worked rect {
+  fill: var(--surface-strong);
+}
+
+.worked text {
+  fill: var(--ink);
+}
+
+.active rect {
+  fill: var(--ink);
+}
+
+.active text {
+  fill: var(--bg);
+}
+
+.active {
+  animation: light 420ms var(--ease-out);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes light {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile rect,
+  .tile text {
+    transition: none;
+  }
+
+  .active {
+    animation: none;
+  }
+}
