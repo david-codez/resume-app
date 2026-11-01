@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { useState } from 'react'
 import styles from './SectionNav.module.css'
 
 const SECTIONS = [
@@ -10,19 +10,28 @@ const SECTIONS = [
 ]
 
 export default function SectionNav({ name }) {
+  const [isOpen, setIsOpen] = useState(false)
   return (
-    <Navbar as="nav" sticky="top" expand="sm" className={styles.nav} aria-label="Section navigation">
-      <Container>
-        <Navbar.Brand href="#top" className={styles.brand}>{name}</Navbar.Brand>
-        <Navbar.Toggle className={styles.toggler} aria-controls="section-nav" />
-        <Navbar.Collapse id="section-nav">
-          <Nav className="ms-auto">
-            {SECTIONS.map((section) => (
-              <Nav.Link key={section.id} href={`#${section.id}`} className={styles.link}>{section.label}</Nav.Link>
-            ))}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <nav className={styles.nav} aria-label="Section navigation">
+      <a href="#top" className={styles.brand}>{name}</a>
+      <button
+        type="button"
+        className={styles.toggle}
+        aria-controls="section-nav"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen((wasOpen) => !wasOpen)}
+      >
+        {isOpen ? 'Close' : 'Menu'}
+      </button>
+      <ul id="section-nav" className={`${styles.links} ${isOpen ? styles.open : ''}`}>
+        {SECTIONS.map((section) => (
+          <li key={section.id}>
+            <a href={`#${section.id}`} className={styles.link} onClick={() => setIsOpen(false)}>
+              {section.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   )
 }

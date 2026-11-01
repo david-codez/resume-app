@@ -9,6 +9,7 @@ module.exports = {
   reactStrictMode: true,
   // A stray ~/package-lock.json otherwise makes Turbopack guess the wrong workspace root.
   turbopack: { root: __dirname },
+  images: { qualities: [75, 85] },
   env: {
     NEXT_PUBLIC_SITE_URL: siteUrl,
   },

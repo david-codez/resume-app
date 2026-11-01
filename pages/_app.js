@@ -1,23 +1,25 @@
-import { Cormorant_SC, Inter } from 'next/font/google'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import { Barlow, Barlow_Condensed } from 'next/font/google'
+import { useRevealOnScroll } from '../components/motion'
 import '../styles/globals.css'
 
-const headingFont = Cormorant_SC({
+const displayFont = Barlow_Condensed({
   subsets: ['latin'],
-  weight: ['500', '700'],
-  variable: '--font-heading',
+  weight: ['700'],
+  variable: '--font-barlow-condensed',
   display: 'swap',
 })
 
-const bodyFont = Inter({
+const textFont = Barlow({
   subsets: ['latin'],
-  variable: '--font-body',
+  weight: ['400', '500'],
+  variable: '--font-barlow',
   display: 'swap',
 })
 
 export default function MyApp({ Component, pageProps }) {
+  useRevealOnScroll()
   return (
-    <div className={`${headingFont.variable} ${bodyFont.variable} ${bodyFont.className}`}>
+    <div className={`site ${displayFont.variable} ${textFont.variable}`}>
       <Component {...pageProps} />
     </div>
   )

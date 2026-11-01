@@ -44,9 +44,9 @@ test('shows every highlight of the featured role as a list item without interact
   expect(screen.getByText('Shipped the gadget.')).toBeVisible()
 })
 
-test('exposes notes through a details element summarised as Read more', () => {
+test('exposes notes through a closed details element', () => {
   render(<ExperienceSection roles={roles} />)
-  const summary = screen.getByText('Read more')
+  const summary = screen.getByText('The longer story')
   expect(summary.tagName).toBe('SUMMARY')
   const details = summary.closest('details')
   expect(details).not.toHaveAttribute('open')
@@ -55,7 +55,7 @@ test('exposes notes through a details element summarised as Read more', () => {
 
 test('renders no details for roles without notes', () => {
   render(<ExperienceSection roles={[roles[0], roles[2]]} />)
-  expect(screen.queryByText('Read more')).not.toBeInTheDocument()
+  expect(screen.queryByText('The longer story')).not.toBeInTheDocument()
   expect(document.querySelector('details')).toBeNull()
 })
 

@@ -5,7 +5,8 @@ import {
 import {
   SiApachemaven, SiBootstrap, SiCplusplus, SiDocker, SiExpress, SiGit, SiGithub, SiHibernate, SiHtml5,
   SiJavascript, SiJest, SiJunit5, SiKubernetes, SiMongodb, SiMui, SiNextdotjs, SiNodedotjs,
-  SiOpenapiinitiative, SiPostgresql, SiPython, SiReact, SiRedux, SiSass, SiSonatype, SiSpringboot, SiTypescript,
+  SiOpenapiinitiative, SiPostgresql, SiPrisma, SiPython, SiReact, SiRedux, SiSass, SiSonatype, SiSpringboot,
+  SiTailwindcss, SiTypescript,
 } from 'react-icons/si'
 import { TbBrandCSharp, TbBrandCss3, TbSql } from 'react-icons/tb'
 
@@ -51,6 +52,8 @@ const ICONS = {
   bootstrap: SiBootstrap,
   sass: SiSass,
   mui: SiMui,
+  tailwind: SiTailwindcss,
+  prisma: SiPrisma,
   github: SiGithub,
   linkedin: FaLinkedin,
 }

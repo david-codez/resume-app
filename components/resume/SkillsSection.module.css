@@ -1,62 +1,63 @@
-.categoryTitle {
-  margin: 0 0 1.25rem;
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-align: left;
-  text-transform: uppercase;
-  color: var(--site-accent);
+.section {
+  padding-top: var(--section-gap);
+  text-align: center;
 }
 
-.skillGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr));
-  justify-content: start;
-  align-items: start;
-  gap: 0.5rem;
-}
-
-.skillCell {
+.groups {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: clamp(3rem, 5vw, 4.5rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 62rem;
+}
+
+.category {
+  font-size: var(--step-lead);
+  text-transform: uppercase;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.75rem;
+  font-size: var(--step-lead);
+  line-height: 1.35;
+}
+
+.skill {
+  display: inline-flex;
+  align-items: center;
   gap: 0.5rem;
-  min-height: 44px;
-  padding: 0.75rem 0.25rem;
-  border-radius: calc(var(--site-radius) / 2);
-  text-align: center;
-  transition: background-color 0.2s ease;
 }
 
-.skillCell:hover {
-  background: var(--site-surface-hover);
+.icon {
+  flex: none;
+  width: 0.85em;
+  height: 0.85em;
+  color: var(--muted);
+  transition: color 200ms ease, transform 200ms var(--ease-out);
 }
 
-.skillIcon {
-  flex-shrink: 0;
-  color: var(--site-text-muted);
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.skillCell:hover .skillIcon {
-  color: var(--skill-brand-color, var(--site-accent));
-  transform: translateY(-2px);
-}
-
-.skillName {
-  font-size: 0.8125rem;
-  line-height: 1.3;
-  overflow-wrap: break-word;
+.skill:hover .icon {
+  color: var(--skill-brand-color, var(--ink));
+  transform: scale(1.2);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .skillCell,
-  .skillIcon {
+  .icon {
     transition: none;
   }
 
-  .skillCell:hover .skillIcon {
+  .skill:hover .icon {
     transform: none;
   }
 }

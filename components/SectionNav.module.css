@@ -1,54 +1,77 @@
 .nav {
-  background: rgba(9, 13, 22, 0.72);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-  backdrop-filter: blur(14px) saturate(160%);
-  border-bottom: 1px solid var(--site-border);
-  --bs-navbar-toggler-focus-width: 0.2rem;
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem var(--margin);
+  font-size: var(--step-small);
 }
 
 .brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--bs-body-color);
+  font-weight: 500;
+  text-decoration: none;
 }
 
-.brand:hover,
-.brand:focus {
-  color: var(--site-accent);
-}
-
-.toggler {
-  border-color: var(--site-border);
+.links {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.75rem);
 }
 
 .link {
+  display: inline-block;
+  padding-block: 0.5rem;
+  text-decoration: none;
+  transition: transform 160ms var(--ease-out);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link:active {
+  transform: translateY(1px);
+}
+
+.toggle {
+  display: none;
   min-height: 2.75rem;
-  display: flex;
-  align-items: center;
-  color: var(--site-text-muted);
+  padding: 0 0.25rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
   font-weight: 500;
-  transition: color 0.15s ease;
+  cursor: pointer;
 }
 
-.link:hover,
-.link:focus {
-  color: var(--site-accent);
-}
-
-@media (min-width: 576px) {
-  .link {
-    padding-inline: 0.85rem;
+@media (max-width: 720px) {
+  .toggle {
+    display: inline-flex;
+    align-items: center;
   }
-}
 
-@media (max-width: 575.98px) {
-  .nav {
-    background: rgba(9, 13, 22, 0.92);
+  .links {
+    position: absolute;
+    top: 100%;
+    left: var(--margin);
+    right: var(--margin);
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.75rem 1.25rem;
+    background: var(--surface);
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
+  .links.open {
+    display: flex;
+  }
+
   .link {
-    transition: none;
+    display: block;
+    padding-block: 0.75rem;
+    font-size: var(--step-body);
   }
 }

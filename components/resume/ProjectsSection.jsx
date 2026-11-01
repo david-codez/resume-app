@@ -1,51 +1,51 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Col, Container, Row } from 'react-bootstrap'
 import { iconFor } from '../iconMap'
 import styles from './ProjectsSection.module.css'
 
 export default function ProjectsSection({ projects }) {
   return (
-    <section id="projects" aria-labelledby="projects-heading" className="site-section">
-      <Container>
-        <h2 id="projects-heading" className="section-title">Projects</h2>
-        <Row className="g-4 reveal">
-          {projects.map((project) => (
-            <Col key={project.slug} md={6} lg={4}>
-              <article className={`glass-card glass-card-interactive position-relative h-100 ${styles.card}`}>
-                <div className={styles.frame}>
-                  <Image
-                    src={project.image}
-                    alt={`${project.name} screenshot`}
-                    width={640}
-                    height={400}
-                    className={styles.screenshot}
-                  />
-                </div>
-                <div className={styles.body}>
-                  <h3 className={styles.name}>
-                    <Link href={`/portfolio/${project.slug}`} className={`stretched-link ${styles.link}`}>
-                      {project.name}
-                    </Link>
-                  </h3>
-                  <p className={styles.summary}>{project.summary}</p>
-                  <ul className={styles.stack}>
-                    {project.stack.map((tool) => {
-                      const Icon = iconFor(tool.icon)
-                      return (
-                        <li key={tool.name} className={styles.tag}>
-                          <Icon aria-hidden="true" />
-                          <span>{tool.name}</span>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
-              </article>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+    <section id="projects" aria-labelledby="projects-heading" className={`frame ${styles.section}`}>
+      <div data-reveal>
+        <h2 id="projects-heading" className="section-heading">Projects</h2>
+      </div>
+      <div className={styles.list}>
+        {projects.map((project) => (
+          <article key={project.slug} className={styles.project} data-reveal>
+            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className={styles.shot} tabIndex={-1}>
+              <Image
+                src={project.image}
+                alt={`${project.name} screenshot`}
+                width={1152}
+                height={720}
+                sizes="(min-width: 900px) 56vw, 100vw"
+                className={styles.image}
+              />
+            </a>
+            <div className={styles.copy}>
+              <h3 className={styles.title}>
+                <Link href={`/portfolio/${project.slug}`} className={styles.titleLink}>{project.name}</Link>
+              </h3>
+              <p className={styles.summary}>{project.summary}</p>
+              <ul className={styles.stack}>
+                {project.stack.map((tool) => {
+                  const Icon = iconFor(tool.icon)
+                  return (
+                    <li key={tool.name}>
+                      <Icon aria-hidden="true" />
+                      <span>{tool.name}</span>
+                    </li>
+                  )
+                })}
+              </ul>
+              <p className={styles.links}>
+                <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="button">Live demo</a>
+                <Link href={`/portfolio/${project.slug}`} className="text-link">Project page</Link>
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
   )
 }

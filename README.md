@@ -1,6 +1,6 @@
 # David Daniel — resume site
 
-Single-page resume built with Next.js (Pages Router), React and Bootstrap, deployed on Vercel from `main`.
+Single-page resume built with Next.js (Pages Router) and React with CSS modules, deployed on Vercel from `main`.
 
 ## Run it
 

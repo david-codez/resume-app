@@ -1,14 +1,21 @@
 import { iconFor } from './iconMap'
 
-export default function SocialLinks({ links, size = '1.75rem' }) {
+export default function SocialLinks({ links, size = '1.75rem', showLabels = false }) {
   return (
-    <ul className="list-inline mb-0">
+    <ul className={`social-list ${showLabels ? 'social-list-labelled' : ''}`}>
       {links.map((link) => {
         const Icon = iconFor(link.icon)
         return (
-          <li key={link.url} className="list-inline-item">
-            <a href={link.url} aria-label={link.label} target="_blank" rel="noopener noreferrer" className="social-link">
+          <li key={link.url}>
+            <a
+              href={link.url}
+              aria-label={showLabels ? undefined : link.label}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
               <Icon size={size} aria-hidden="true" />
+              {showLabels ? <span>{link.label}</span> : null}
             </a>
           </li>
         )

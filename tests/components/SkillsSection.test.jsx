@@ -32,12 +32,6 @@ test('a branded skill cell carries its brand color and an unbranded one does not
   expect(screen.getByText('SQL').closest('li').style.getPropertyValue('--skill-brand-color')).toBe('')
 })
 
-test('each category is a glass card titled by its heading and the section title is styled', () => {
-  render(<SkillsSection skillGroups={skillGroups} />)
-  expect(screen.getByRole('heading', { level: 2, name: 'Skills' })).toHaveClass('section-title')
-  expect(screen.getByRole('heading', { level: 3, name: 'Languages' }).closest('.glass-card')).not.toBeNull()
-  expect(screen.getByRole('heading', { level: 3, name: 'Frontend' }).closest('.glass-card')).not.toBeNull()
-})
 
 test('skills are listed as list items within their category', () => {
   render(<SkillsSection skillGroups={skillGroups} />)

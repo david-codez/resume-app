@@ -12,5 +12,5 @@ test('renders a navigation landmark with an anchor link to every section', () =>
 
 test('offers a menu toggle for the section links', () => {
   render(<SectionNav name="Test Person" />)
-  expect(screen.getByRole('button', { name: 'Toggle navigation' })).toHaveAttribute('aria-controls', 'section-nav')
+  expect(screen.getByRole('button', { name: 'Menu' })).toHaveAttribute('aria-controls', 'section-nav')
 })

@@ -1,5 +1,20 @@
 [
   {
+    "slug": "lol-app",
+    "name": "LoL App",
+    "summary": "A League of Legends reference with searchable champions and items, a drag-and-drop build tester that recalculates stats and ability damage, and an item guessing game.",
+    "demoUrl": "https://lol-app-pi.vercel.app/",
+    "image": "/images/lol-app-screenshot.png",
+    "stack": [
+      { "name": "Next.js", "icon": "nextjs" },
+      { "name": "React", "icon": "react" },
+      { "name": "TypeScript", "icon": "typescript" },
+      { "name": "Tailwind CSS", "icon": "tailwind" },
+      { "name": "Prisma", "icon": "prisma" },
+      { "name": "PostgreSQL", "icon": "postgresql" }
+    ]
+  },
+  {
     "slug": "to-do-list",
     "name": "To Do List",
     "summary": "A task tracker with separate active and completed lists, built in React and styled with Bootstrap and Sass.",
