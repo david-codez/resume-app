@@ -21,7 +21,7 @@ test('section navigation lists sections in page order', () => {
   render(<Home />)
   const nav = screen.getByRole('navigation', { name: 'Section navigation' })
   const labels = within(nav).getAllByRole('link').map((link) => link.textContent).slice(1)
-  expect(labels).toEqual(['Experience', 'Education', 'Skills', 'Projects', 'About', 'Contact'])
+  expect(labels).toEqual(['Experience', 'Education', 'Skills', 'Projects', 'Gallery', 'Contact'])
 })
 
 test('section navigation links to every section', () => {
