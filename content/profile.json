@@ -9,8 +9,8 @@
   "headshot": "/images/headshot-suit.jpg",
   "resumePdf": "/David_Daniel_Resume.pdf",
   "social": [
-    { "label": "GitHub", "url": "https://github.com/david-codez", "icon": "github" },
     { "label": "GitLab", "url": "https://gitlab.com/davidcodez", "icon": "gitlab" },
-    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/david-daniel-79945522a/", "icon": "linkedin" }
+    { "label": "GitHub", "url": "https://github.com/david-codez", "icon": "github" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/david-d-79945522a/", "icon": "linkedin" }
   ]
 }

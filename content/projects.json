@@ -90,6 +90,33 @@
     ]
   },
   {
+    "slug": "mtg-rules-engine",
+    "name": "MTG Rules Engine",
+    "current": true,
+    "summary": "A Magic: The Gathering rules engine in Rust, built as the training environment for a reinforcement learning model that will learn to play the game. It loads real cards and plays the opponent with a heuristic AI; it is still under construction, and training starts once it is complete.",
+    "sourceUrl": "https://gitlab.com/davidcodez/mtg_rules_engine",
+    "image": "/images/mtg-rules-engine.jpg",
+    "features": [
+      "The Comprehensive Rules implemented as functions over the game state: casting, the stack, combat, layers and state-based actions.",
+      "Real cards from Scryfall Oracle data, with card scripts from Card Forge, the open-source Magic engine, translated into a typed effect representation; about half of the scripted Standard and Commander cards translate clean so far.",
+      "The opponent is a Rust port of Card Forge's heuristic AI, covering board evaluation, priority, combat and mulligans.",
+      "A Gymnasium-compatible Python environment with a dynamic list of legal actions, where a spell that needs modes, targets, X or divided damage is broken into choices in rule order."
+    ],
+    "buildNotes": [
+      "Target scope is two-player Standard and two- or four-player Commander.",
+      "Credit to Card Forge: its card scripts are vendored under GPLv3 with attribution, and its script format and AI are the basis for the engine's card behaviour and opponent. I built a new engine rather than training on Forge itself because of Rust: games run as native code with no garbage-collector pauses, so the trainer can play huge numbers of them quickly; the compiler rules out whole classes of memory and data-race bugs; and PyO3 loads the engine straight into Python as an extension module, with no JVM to run alongside.",
+      "PyO3 bindings expose the engine to Python, and a custom PPO trainer in PyTorch is ready to train against the heuristic opponent.",
+      "The merge gate runs about 2,800 unit tests and 2,400 integration tests with fmt and clippy clean, and 500 seeded games must replay identically.",
+      "A card counts as clean only when it translates without warnings and every ability, keyword and condition either works or is refused by name. Tightening that rule removed thousands of cards that had been counted as working while doing nothing.",
+      "The card database is built from pinned inputs, compiled twice and required to come out byte-identical."
+    ],
+    "stack": [
+      { "name": "Rust", "icon": "rust" },
+      { "name": "Python", "icon": "python" },
+      { "name": "PyTorch", "icon": "pytorch" }
+    ]
+  },
+  {
     "slug": "to-do-list",
     "name": "To Do List",
     "summary": "A keyboard-friendly task list built with React 19 and TypeScript. Tasks are saved in the browser, mistakes can be undone, and it follows your system's light or dark theme.",

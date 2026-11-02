@@ -45,6 +45,7 @@ export default function ProjectPage({ project }) {
       </nav>
       <main className={`frame ${styles.page}`}>
         <div data-reveal>
+          {project.current ? <p className={styles.current}>Current project</p> : null}
           <h1 className={styles.title}>{project.name}</h1>
         </div>
         <div className={styles.layout}>

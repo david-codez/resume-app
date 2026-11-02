@@ -70,6 +70,15 @@
   font-variant-numeric: tabular-nums;
 }
 
+.current {
+  margin-left: 1rem;
+  padding: 0.2rem 0.6rem;
+  background: var(--field-ink);
+  color: var(--field);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 .title {
   font-size: var(--step-head);
   text-transform: uppercase;

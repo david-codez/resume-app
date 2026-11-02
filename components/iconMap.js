@@ -7,7 +7,7 @@ import {
   SiJavascript, SiJest, SiJunit5, SiKubernetes, SiMongodb, SiMui, SiNextdotjs, SiNodedotjs,
   SiOpenapiinitiative, SiPostgresql, SiPrisma, SiPython, SiReact, SiRedux, SiSass, SiSonatype, SiSpringboot,
   SiTailwindcss, SiTypescript, SiVite, SiVitest, SiPytorch, SiHuggingface, SiMeta, SiKaggle,
-  SiWeightsandbiases, SiSupabase, SiOllama, SiElectron, SiSqlite,
+  SiWeightsandbiases, SiSupabase, SiOllama, SiElectron, SiSqlite, SiRust,
 } from 'react-icons/si'
 import { TbBrandCSharp, TbBrandCss3, TbSql } from 'react-icons/tb'
 
@@ -69,6 +69,7 @@ const ICONS = {
   ollama: SiOllama,
   electron: SiElectron,
   sqlite: SiSqlite,
+  rust: SiRust,
   linkedin: FaLinkedin,
 }
 

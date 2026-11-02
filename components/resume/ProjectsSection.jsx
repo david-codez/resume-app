@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { iconFor } from '../iconMap'
 import styles from './ProjectsSection.module.css'
 
-function ProjectSlide({ project, position, count }) {
+function ProjectSlide({ project, position, count, isStart }) {
   return (
     <li className={styles.slide} aria-roledescription="slide" aria-label={`${position} of ${count}`}>
       <article className={styles.project}>
@@ -21,12 +21,13 @@ function ProjectSlide({ project, position, count }) {
             fill
             sizes="(min-width: 900px) 58vw, 100vw"
             className={styles.image}
-            priority={position === 1}
+            priority={isStart}
           />
         </a>
         <div className={styles.copy}>
           <p className={styles.count}>
             {String(position).padStart(2, '0')} / {String(count).padStart(2, '0')}
+            {project.current ? <span className={styles.current}>Current project</span> : null}
           </p>
           <h3 className={styles.title}>
             <Link href={`/portfolio/${project.slug}`} className={styles.titleLink}>{project.name}</Link>
@@ -56,8 +57,15 @@ function ProjectSlide({ project, position, count }) {
 }
 
 export default function ProjectsSection({ projects }) {
+  const currentIndex = projects.findIndex((project) => project.current)
+  const startIndex = currentIndex === -1 ? 0 : currentIndex
   const trackRef = useRef(null)
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(startIndex)
+
+  useEffect(() => {
+    const track = trackRef.current
+    track.scrollLeft = startIndex * track.clientWidth
+  }, [startIndex])
 
   const showSlide = (index) => {
     const track = trackRef.current
@@ -120,7 +128,13 @@ export default function ProjectsSection({ projects }) {
         ) : null}
         <ul id="projects-track" ref={trackRef} className={styles.track} onScroll={followScroll}>
           {projects.map((project, index) => (
-            <ProjectSlide key={project.slug} project={project} position={index + 1} count={projects.length} />
+            <ProjectSlide
+              key={project.slug}
+              project={project}
+              position={index + 1}
+              count={projects.length}
+              isStart={index === startIndex}
+            />
           ))}
         </ul>
       </div>
