@@ -8,7 +8,13 @@ function ProjectSlide({ project, position, count }) {
   return (
     <li className={styles.slide} aria-roledescription="slide" aria-label={`${position} of ${count}`}>
       <article className={styles.project}>
-        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className={styles.shot} tabIndex={-1}>
+        <a
+          href={project.demoUrl ?? `/portfolio/${project.slug}`}
+          target={project.demoUrl ? '_blank' : undefined}
+          rel={project.demoUrl ? 'noopener noreferrer' : undefined}
+          className={styles.shot}
+          tabIndex={-1}
+        >
           <Image
             src={project.image}
             alt={`${project.name} screenshot`}
@@ -38,7 +44,9 @@ function ProjectSlide({ project, position, count }) {
             })}
           </ul>
           <p className={styles.links}>
-            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className={styles.demo}>Live demo</a>
+            {project.demoUrl ? (
+              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className={styles.demo}>{project.demoLabel ?? 'Live demo'}</a>
+            ) : null}
             <Link href={`/portfolio/${project.slug}`} className={styles.pageLink}>Project page</Link>
           </p>
         </div>
@@ -71,11 +79,6 @@ export default function ProjectsSection({ projects }) {
         <h2 id="projects-heading" className={`section-heading ${styles.heading}`}>Projects</h2>
       </div>
       <div className={styles.carousel} aria-roledescription="carousel" aria-labelledby="projects-heading">
-        <ul id="projects-track" ref={trackRef} className={styles.track} onScroll={followScroll}>
-          {projects.map((project, index) => (
-            <ProjectSlide key={project.slug} project={project} position={index + 1} count={projects.length} />
-          ))}
-        </ul>
         {projects.length > 1 ? (
           <div className={`frame ${styles.controls}`}>
             <button
@@ -115,6 +118,11 @@ export default function ProjectsSection({ projects }) {
             </button>
           </div>
         ) : null}
+        <ul id="projects-track" ref={trackRef} className={styles.track} onScroll={followScroll}>
+          {projects.map((project, index) => (
+            <ProjectSlide key={project.slug} project={project} position={index + 1} count={projects.length} />
+          ))}
+        </ul>
       </div>
     </section>
   )

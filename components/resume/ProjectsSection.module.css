@@ -1,12 +1,14 @@
 .section {
-  margin-top: var(--section-gap);
+  --field: var(--bg);
+  --field-ink: var(--ink);
+  --field-muted: var(--muted);
   padding-block: clamp(3.5rem, 5vw, 4.5rem) clamp(2.5rem, 4vw, 3.5rem);
   background: var(--field);
   color: var(--field-ink);
 }
 
 .heading {
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 
 .track {
@@ -148,7 +150,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-top: clamp(2rem, 3vw, 2.5rem);
+  margin-bottom: clamp(2rem, 3vw, 2.5rem);
 }
 
 .arrow {

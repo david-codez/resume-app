@@ -62,9 +62,11 @@ export default function ProjectPage({ project }) {
           <div className={styles.panel} data-reveal>
             <p className={styles.summary}>{project.summary}</p>
             <div className={styles.actions}>
-              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="button">
-                Open live demo
-              </a>
+              {project.demoUrl ? (
+                <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="button">
+                  {project.demoLabel ?? 'Open live demo'}
+                </a>
+              ) : null}
               {project.sourceUrl ? (
                 <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-link">
                   View source

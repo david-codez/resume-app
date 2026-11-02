@@ -6,7 +6,8 @@ import {
   SiApachemaven, SiBootstrap, SiCockroachlabs, SiCplusplus, SiDocker, SiExpress, SiGit, SiGithub, SiGitlab, SiHibernate, SiHtml5,
   SiJavascript, SiJest, SiJunit5, SiKubernetes, SiMongodb, SiMui, SiNextdotjs, SiNodedotjs,
   SiOpenapiinitiative, SiPostgresql, SiPrisma, SiPython, SiReact, SiRedux, SiSass, SiSonatype, SiSpringboot,
-  SiTailwindcss, SiTypescript, SiVite, SiVitest,
+  SiTailwindcss, SiTypescript, SiVite, SiVitest, SiPytorch, SiHuggingface, SiMeta, SiKaggle,
+  SiWeightsandbiases, SiSupabase, SiOllama, SiElectron, SiSqlite,
 } from 'react-icons/si'
 import { TbBrandCSharp, TbBrandCss3, TbSql } from 'react-icons/tb'
 
@@ -59,6 +60,15 @@ const ICONS = {
   vitest: SiVitest,
   github: SiGithub,
   gitlab: SiGitlab,
+  pytorch: SiPytorch,
+  huggingface: SiHuggingface,
+  meta: SiMeta,
+  kaggle: SiKaggle,
+  wandb: SiWeightsandbiases,
+  supabase: SiSupabase,
+  ollama: SiOllama,
+  electron: SiElectron,
+  sqlite: SiSqlite,
   linkedin: FaLinkedin,
 }
 

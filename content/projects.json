@@ -29,6 +29,67 @@
     ]
   },
   {
+    "slug": "toni-d-voice-model",
+    "name": "Toni D Voice Model",
+    "summary": "Llama 3.1 8B fine-tuned with QLoRA to write rap lyrics in my own voice, from a dataset built on my roughly 97-song catalog. A Custom GPT given the same data wrote the songs on the Suno playlist.",
+    "demoUrl": "https://suno.com/playlist/e464e6b9-01f2-42b7-bf1e-a1abad6651e5",
+    "demoLabel": "Listen on Suno",
+    "sourceUrl": "https://gitlab.com/davidcodez/toni-d-lyrics",
+    "image": "/images/toni-d-voice-model.jpg",
+    "features": [
+      "Writes verses, hooks and full songs in my style from a short prompt, ready for Suno to render as audio.",
+      "Runs entirely on my own machine: the adapter is converted to GGUF (Q8_0) with llama.cpp and served through Ollama.",
+      "A stylometric evaluation suite scores each output for syllable density, type-token ratio, verbatim memorization and output diversity.",
+      "Rehearsal data (persona prose and general-assistant examples) limits style bleed and keeps the base model's general abilities."
+    ],
+    "buildNotes": [
+      "QLoRA fine-tune (4-bit, r=16) on Kaggle GPUs, with experiments tracked in Weights & Biases and adapters hosted on Hugging Face.",
+      "Dataset pipeline: per-song phonetic, rhyme and structure analysis behind automated audit gates, then named-entity masking, section-marker normalization and prompt diversification, with a song-level train/validation holdout.",
+      "Custom Python tooling, including an AAVE-tuned phoneme mapper for syllable counting and rhyme detection.",
+      "Across three training runs I traced verbatim memorization to high-frequency completions, corrected syllable-density drift and overfitting, and fixed a TRL / Llama 3.1 chat-template loss-masking mismatch. Memorization is reduced, not eliminated.",
+      "Lyrics, analyses and training pairs live in Supabase (PostgreSQL).",
+      "The small model was promising, so I gave a frontier model the same data by compiling it into a Custom GPT (a feature OpenAI has since retired). Its songs were much stronger, and they are the ones on the Suno playlist."
+    ],
+    "stack": [
+      { "name": "Python", "icon": "python" },
+      { "name": "PyTorch", "icon": "pytorch" },
+      { "name": "Hugging Face", "icon": "huggingface" },
+      { "name": "Llama 3.1", "icon": "meta" },
+      { "name": "Kaggle", "icon": "kaggle" },
+      { "name": "Weights & Biases", "icon": "wandb" },
+      { "name": "Supabase", "icon": "supabase" },
+      { "name": "Ollama", "icon": "ollama" }
+    ]
+  },
+  {
+    "slug": "gpt-app",
+    "name": "GPT App",
+    "summary": "My barebones attempt at a custom AI harness: an Electron desktop app where a model can search, read and patch code in a local workspace, with every change waiting on my approval.",
+    "sourceUrl": "https://gitlab.com/davidcodez/gpt-app",
+    "image": "/images/gpt-app.jpg",
+    "features": [
+      "Chat with any OpenAI-compatible endpoint, or a local or remote Ollama model.",
+      "Workspace tools for searching, reading and patching code, running commands and basic git.",
+      "Mutating tools pause for approval; a read-only planning mode turns them off entirely.",
+      "Context management keeps long sessions inside the model's window: a byte budget, older turns summarized when it fills, and code pulled in on demand from a local semantic index instead of whole files."
+    ],
+    "buildNotes": [
+      "Every model call is held to a byte budget. Old tool output is trimmed first and replaced with a marked stub, so the model knows something was removed rather than seeing it silently disappear.",
+      "Near 80% of that budget, an optional summarizer condenses older turns while the latest turn stays intact; if the summary fails, times out or comes back empty, the full history is kept.",
+      "A retrieve_code_context tool searches a per-workspace embeddings index (sqlite-vec, overlapping line chunks). A manifest records the model, dimensions and readiness, and queries refuse to run against a stale or half-built index.",
+      "Single tool results are capped at about 100 KB, and project notes and skills are added to the system prompt once, on the first message, each under its own size limit.",
+      "API keys and model calls stay in Electron's main process; the renderer only talks to it through a narrow preload bridge.",
+      "Covered by a Node test suite and a few Playwright end-to-end checks."
+    ],
+    "stack": [
+      { "name": "Electron", "icon": "electron" },
+      { "name": "Node.js", "icon": "nodejs" },
+      { "name": "Ollama", "icon": "ollama" },
+      { "name": "SQLite", "icon": "sqlite" },
+      { "name": "MCP", "icon": "mcp" }
+    ]
+  },
+  {
     "slug": "to-do-list",
     "name": "To Do List",
     "summary": "A keyboard-friendly task list built with React 19 and TypeScript. Tasks are saved in the browser, mistakes can be undone, and it follows your system's light or dark theme.",

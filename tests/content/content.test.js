@@ -79,13 +79,15 @@ describe('resume content', () => {
     }
   })
 
-  test('every project has a unique slug, summary, https demo url, image and stack', () => {
+  test('every project has a unique slug, summary, image and stack, and any demo url is https', () => {
     const slugs = projects.map((project) => project.slug)
     expect(new Set(slugs).size).toBe(slugs.length)
     for (const project of projects) {
       expect(project.slug).toMatch(/^[a-z0-9-]+$/)
       expect(project.summary.trim()).not.toBe('')
-      expect(project.demoUrl).toMatch(/^https:\/\//)
+      if (project.demoUrl !== undefined) {
+        expect(project.demoUrl).toMatch(/^https:\/\//)
+      }
       expect(project.image).toMatch(/^\/images\//)
       expect(project.stack.length).toBeGreaterThan(0)
       for (const tool of project.stack) {
