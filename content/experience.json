@@ -29,7 +29,8 @@
     "location": "",
     "start": "January 2022",
     "end": "May 2022",
-    "highlights": []
+    "highlights": [],
+    "notes": "I joined Honeybelle as part of its opening staff. Those first weeks were chaotic: a new menu, new systems and a front of house still finding its rhythm. I drew on my years of restaurant experience to help set up routines for side work and for communicating with the kitchen, and the floor ran smoother for it. Being there from day one showed me how much it takes to get a new business on its feet."
   },
   {
     "id": "tommy-bahama",
@@ -39,7 +40,8 @@
     "location": "",
     "start": "January 2021",
     "end": "February 2022",
-    "highlights": []
+    "highlights": [],
+    "notes": "I worked at Tommy Bahama while taking classes at Palm Beach State College, picking up shifts around my course schedule. It was a busy restaurant and a good way to pay my way through school. The management team changed often while I was there, so I learned to hold my own standards steady no matter who was running the floor."
   },
   {
     "id": "westwood-interior-cleaning",
@@ -65,16 +67,6 @@
     "notes": "I worked at Duffy's for about three and a half years, I worked at three different locations and was offered a management position several times. I never accepted any supervisory position because i had no interest in pursuing a career in restaurant management"
   },
   {
-    "id": "buffalo-wild-wings",
-    "company": "Buffalo Wild Wings",
-    "logo": "/images/logos/buffalo-wild-wings.svg",
-    "positions": ["Server"],
-    "location": "",
-    "start": "March 2017",
-    "end": "August 2017",
-    "highlights": []
-  },
-  {
     "id": "chilis-bar-and-grill",
     "company": "Chili's Bar & Grill",
     "logo": "/images/logos/chilis-bar-and-grill.svg",
@@ -94,7 +86,8 @@
     "location": "",
     "start": "November 2014",
     "end": "May 2015",
-    "highlights": []
+    "highlights": [],
+    "notes": "Teleperformance was both the coolest and the toughest job I've had. Saying I worked for Xbox never got old, but call center work is draining: back-to-back calls, tight handle-time targets and a lot of frustrated gamers. I took advantage of unlimited overtime and at one point worked up to 90 hours a week (not recommended). It was also my first real IT experience. Walking customers through connection problems taught me a surprising amount about how networking works: routers, ports, NAT types and why a console can't reach Xbox Live."
   },
   {
     "id": "dunkin-donuts",
