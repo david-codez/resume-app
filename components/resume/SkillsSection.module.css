@@ -1,5 +1,10 @@
 .section {
-  padding-top: var(--section-gap);
+  --ink: var(--field-ink);
+  --muted: var(--field-muted);
+  margin-top: var(--section-gap);
+  padding-block: clamp(5rem, 9vw, 8rem);
+  background: var(--field);
+  color: var(--ink);
   text-align: center;
 }
 

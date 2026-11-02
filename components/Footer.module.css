@@ -1,7 +1,3 @@
-.footer {
-  margin-top: var(--section-gap);
-}
-
 .scene {
   position: relative;
   height: 100svh;

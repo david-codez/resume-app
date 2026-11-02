@@ -5,7 +5,7 @@ import styles from './Footer.module.css'
 
 export default function Footer({ profile }) {
   return (
-    <footer id="contact" aria-labelledby="contact-heading" className={styles.footer}>
+    <footer id="contact" aria-labelledby="contact-heading">
       <div className={styles.scene}>
         <Image
           src="/images/found/capitols-tallahassee.jpg"
