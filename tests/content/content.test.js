@@ -1,3 +1,5 @@
+import fs from 'fs'
+import path from 'path'
 import profile from '../../content/profile.json'
 import skills from '../../content/skills.json'
 import experience from '../../content/experience.json'
@@ -92,6 +94,19 @@ describe('resume content', () => {
       expect(project.stack.length).toBeGreaterThan(0)
       for (const tool of project.stack) {
         expect(tool).toEqual({ name: expect.any(String), icon: expect.any(String) })
+      }
+    }
+  })
+
+  test('every project screenshot has an existing image, alt text, a caption and positive dimensions', () => {
+    for (const project of projects) {
+      for (const screenshot of project.screenshots ?? []) {
+        expect(screenshot.image).toMatch(/^\/images\//)
+        expect(fs.existsSync(path.join(__dirname, '../../public', screenshot.image))).toBe(true)
+        expect(screenshot.alt.trim()).not.toBe('')
+        expect(screenshot.caption.trim()).not.toBe('')
+        expect(screenshot.width).toBeGreaterThan(0)
+        expect(screenshot.height).toBeGreaterThan(0)
       }
     }
   })

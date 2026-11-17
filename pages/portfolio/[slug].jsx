@@ -31,6 +31,34 @@ function DetailList({ heading, items }) {
   )
 }
 
+function Screenshots({ screenshots }) {
+  if (!screenshots?.length) {
+    return null
+  }
+  return (
+    <section className={styles.screenshots} data-reveal>
+      <h2 className={styles.detailHeading}>Screenshots</h2>
+      <ul className={styles.screenshotList}>
+        {screenshots.map((screenshot) => (
+          <li key={screenshot.image} className={styles.screenshotItem}>
+            <figure>
+              <Image
+                src={screenshot.image}
+                alt={screenshot.alt}
+                width={screenshot.width}
+                height={screenshot.height}
+                sizes="(min-width: 900px) 46vw, 100vw"
+                className={styles.image}
+              />
+              <figcaption className={styles.caption}>{screenshot.caption}</figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
 export default function ProjectPage({ project }) {
   return (
     <>
@@ -92,6 +120,7 @@ export default function ProjectPage({ project }) {
           <DetailList heading="What it does" items={project.features} />
           <DetailList heading="How it's built" items={project.buildNotes} />
         </div>
+        <Screenshots screenshots={project.screenshots} />
       </main>
     </>
   )

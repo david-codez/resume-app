@@ -6,16 +6,28 @@
     "demoUrl": "https://lol-app-pi.vercel.app/",
     "sourceUrl": "https://gitlab.com/davidcodez/lol-app",
     "image": "/images/lol-app-screenshot.png",
+    "screenshots": [
+      { "image": "/images/lol-app-pics/home.png", "alt": "The LoL App home page with the Champions, Items, Build Tester and Item Game entry points.", "caption": "Home", "width": 1080, "height": 542 },
+      { "image": "/images/lol-app-pics/champions.png", "alt": "The champion manifest with name search, resource, class, region, species and lane filters, and pagination.", "caption": "Champion browser", "width": 1080, "height": 834 },
+      { "image": "/images/lol-app-pics/champion-detail.png", "alt": "Ahri's detail page showing lore, abilities, base stats by level, tips and difficulty ratings.", "caption": "Champion detail", "width": 1080, "height": 1653 },
+      { "image": "/images/lol-app-pics/items.png", "alt": "The item manifest with search, an item type filter, stat filter icons and sorting.", "caption": "Item browser", "width": 1080, "height": 834 },
+      { "image": "/images/lol-app-pics/item-detail.png", "alt": "Axiom Arc's detail page showing its stats, passive, gold efficiency and build-path tree.", "caption": "Item detail", "width": 1075, "height": 752 },
+      { "image": "/images/lol-app-pics/build-tester.png", "alt": "Akali with six items slotted in. The stats panel shows the totals, including the Rabadon's Deathcap AP bonus.", "caption": "Build Tester", "width": 1816, "height": 959 },
+      { "image": "/images/lol-app-pics/item-game.png", "alt": "A round in progress with hidden clues, guesses remaining, a stat filter picker, and a win-rate and streak panel.", "caption": "Item Game", "width": 1080, "height": 912 }
+    ],
     "features": [
-      "Champion browser filtered by name, resource type, class, region, species and lane, with detail pages for stats, abilities, tips and lore.",
-      "Item browser filtered by type and stat, with gold cost, parsed stats, unique passives and a build-path tree for each item.",
-      "Build Tester: pick a champion and level, drag items into the build slots, and watch stats and ability damage recalculate.",
-      "Item Game: guess a hidden item as its stats and masked passives are revealed one clue at a time, with a win tally saved in the browser."
+      "Champion browser: search by name and filter by resource type, class, region, species and lane. Each champion has a detail page with base stats, abilities with resolved tooltips and scaling, tips and lore.",
+      "Item browser: filter by item type and by stat (AD, AP, armor, health, ability haste and more). Each item shows its gold cost, parsed stats, unique passives and actives, and a build-path tree of the components it is made from.",
+      "Build Tester: pick a champion and level, then drag items into the build slots. Base stats update with the item totals and the always-on passives, and each ability's damage and scaling recalculates for the build's AP and AD.",
+      "Item Game: guess a hidden item from clues revealed one step at a time. Stats come first, then each ability with its passive name masked. Choose a tier pool (legendary, epic or all), narrow the guess grid with stat filters, and track wins in a stats panel saved in the browser."
     ],
     "buildNotes": [
-      "Next.js App Router with REST API routes for champions, items, filters and the item game.",
-      "Prisma over CockroachDB, split into champions, items, lore and public schemas; the schema also runs on PostgreSQL.",
-      "Ability tooltips are resolved from raw game data, and item passives such as Rabadon's, Sterak's and Riftmaker are modelled so the numbers match the game.",
+      "Next.js App Router with REST API routes for champions, items, autocomplete, filter options, a combined search manifest and the item game.",
+      "Prisma over CockroachDB, split into champions, items, lore and public schemas. The same schema runs on PostgreSQL.",
+      "Champion abilities are stored as raw game data (tooltips, variables and spell calculations). Resolvers fill in the tooltip text and scaling, so the Build Tester can fold the build's AP and AD into every number.",
+      "Item descriptions are parsed into structured stats for filtering and for summing a build. Always-on passives are modelled in code so the numbers match the game: multipliers (Rabadon's +30% AP), conversions (Riftmaker's bonus Health to AP, Sterak's base AD to bonus AD) and flat bonuses (Endless Hunger). Conditional passives, such as those based on missing Health, are not modelled.",
+      "Item Game logic is React-free and unit tested: reveal ordering, passive-name masking and tier resolution. Filtering the guess grid is display-only, so it never changes the answer.",
+      "Data comes from game data and Community Dragon images, loaded through seed and parse scripts for lanes, regions, species, item stats and item build paths.",
       "Unit tests in Vitest and end-to-end tests of the item game and build paths in Playwright."
     ],
     "stack": [
