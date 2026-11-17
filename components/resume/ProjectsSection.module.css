@@ -189,13 +189,14 @@
 
 .tabs {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 0.25rem 1.5rem;
+  gap: 1.25em;
+  font-size: min(var(--step-body), 1.8vw);
 }
 
 .tab {
   min-height: 2.75rem;
+  white-space: nowrap;
   padding: 0;
   border: 0;
   border-bottom: 2px solid transparent;
